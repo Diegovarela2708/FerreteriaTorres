@@ -2,8 +2,10 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
 
-    <table align="center" class="auto-style4">
-        <tr>
+
+
+    <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
+       <tr>
             <td class="auto-style5"><strong>Alquiler</strong></td>
         </tr>
         <tr>
@@ -108,7 +110,7 @@
             <td class="auto-style9"></td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style17">
                 <asp:Panel ID="pnlOpciones" runat="server">
                     <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                         <Items>
@@ -118,27 +120,33 @@
                             <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
                         </Items>
-                        <StaticMenuItemStyle Font-Bold="True" ForeColor="Red" Width="10px" />
+                        <StaticMenuItemStyle Font-Bold="True" ForeColor="Red" HorizontalPadding="60px" />
                     </asp:Menu>
+                    
                 </asp:Panel>
             </td>
             <tr>
-            <td>
-                &nbsp;</td>
-        </tr>
+            <td>&nbsp;</td>
+            </tr>
+             <tr>
+            <td class="auto-style19">
+                <asp:Label ID="lblMsj" runat="server"></asp:Label>
+                 </td>
+            </tr>
             <tr>
             <td>
-                <img alt="" class="auto-style15" src="Imagenes/Loguito.JPG" /></td>
+                <img alt="" class="auto-style18" src="Imagenes/Loguito.JPG" /></td>
         </tr>
         </tr>
     </table>
 
+
+
 </asp:Content>
+
+
 <asp:Content ID="Content5" runat="server" contentplaceholderid="head">
     <style type="text/css">
-        .auto-style4 {
-            width: 100%;
-        }
         .auto-style5 {
             text-align: center;
             font-family: "comic Sans MS";
@@ -181,11 +189,20 @@
             width: 40%;
             height: 34px;
         }
-        .auto-style15 {
-            width: 151px;
+        .auto-style17 {
+            height: 33px;
+        }
+        .auto-style18 {
+            width: 150px;
             height: 60px;
             float: right;
         }
+        .auto-style19 {
+            height: 31px;
+            text-align: center;
+        }
     </style>
 </asp:Content>
+
+
 

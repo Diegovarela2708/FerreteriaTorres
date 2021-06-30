@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/frmPrincipal.Master" AutoEventWireup="true" CodeBehind="frmEquipos.aspx.cs" Inherits="FerreteriaTorres.Web.Formulario_web15" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
-    <table align="center" class="auto-style4">
-        <tr>
+   
+    <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
+       <tr>
             <td class="auto-style5"><strong>Equipos</strong></td>
         </tr>
         <tr>
@@ -122,16 +123,19 @@
             <td class="auto-style15"></td>
         </tr>
         <tr>
+            <td class="auto-style16">
+                <asp:Label ID="lblMsj" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <img alt="" class="auto-style13" src="Imagenes/Loguito.JPG" /></td>
         </tr>
     </table>
+   
 </asp:Content>
 <asp:Content ID="Content5" runat="server" contentplaceholderid="head">
     <style type="text/css">
-        .auto-style4 {
-            width: 98%;
-        }
         .auto-style5 {
             text-align: center;
             font-family: "comic Sans MS";
@@ -179,6 +183,14 @@
         .auto-style15 {
             height: 26px;
         }
+        .auto-style16 {
+            height: 26px;
+            text-align: center;
+        }
     </style>
 </asp:Content>
+
+
+
+
 
