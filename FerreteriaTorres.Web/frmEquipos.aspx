@@ -24,47 +24,66 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Tipo De Equipo:</strong></td>
-                        <td class="auto-style8" style="width: 40%">
-                            <asp:DropDownList ID="DropDownList1" runat="server" Width="222px">
+                        <td class="auto-style11"><strong>Tipo De Equipo:</strong></td>
+                        <td class="auto-style12">
+                            <asp:DropDownList ID="rblTipoEquipo" runat="server" Width="222px">
                             </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Activo:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:CheckBox ID="chkActivo" runat="server" />
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Valor Unitario:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:TextBox ID="txtVrUnitario" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Valor Prestamo:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:TextBox ID="txtVrPrestamo" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Impuesto:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:TextBox ID="txtImpuesto" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Cantidad En Existencia:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:TextBox ID="txtCantExistencia" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Marca:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:DropDownList ID="rblMarca" runat="server" Width="228px">
+                            </asp:DropDownList>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style9"><strong>Caracteristicas:</strong></td>
+                        <td class="auto-style10">
+                            <asp:TextBox ID="txtCaracteristicas" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Creado Por:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:TextBox ID="txtCreadoPor" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong></strong></td>
-                        <td class="auto-style8" style="width: 40%">&nbsp;</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Fecha De Creado:</strong></td>
+                        <td class="auto-style8" style="width: 40%">
+                            <asp:TextBox ID="txtFechaCreado" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                 </table>
             </td>
@@ -119,6 +138,16 @@
             text-align: left;
             width: 40%;
             height: 31px;
+        }
+        .auto-style11 {
+            text-align: right;
+            width: 40%;
+            height: 34px;
+        }
+        .auto-style12 {
+            text-align: left;
+            width: 40%;
+            height: 34px;
         }
     </style>
 </asp:Content>

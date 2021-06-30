@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:GridView ID="GridView1" runat="server" Width="100%" Font-Bold="True" ForeColor="Red">
+                <asp:GridView ID="GridView1" runat="server" Width="100%" Font-Bold="True" ForeColor="Red" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px">
                     <RowStyle HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
@@ -182,7 +182,7 @@
             height: 34px;
         }
         .auto-style15 {
-            width: 150px;
+            width: 151px;
             height: 60px;
             float: right;
         }
