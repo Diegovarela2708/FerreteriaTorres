@@ -67,10 +67,92 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="frmTipoDeDocumento.aspx" />
+    <Content Include="frmTipoDeEquipos.aspx" />
+    <Content Include="frmTelefonoCliente.aspx" />
+    <Content Include="frmMarca.aspx" />
+    <Content Include="frmEquipos.aspx" />
+    <Content Include="frmEmpleado.aspx" />
+    <Content Include="frmDireccionesClientes.aspx" />
+    <Content Include="frmClientes.aspx" />
+    <Content Include="frmAlquiler.aspx" />
+    <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\Buscar.jpg" />
+    <Content Include="Imagenes\Loguito.JPG" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmTipoDeDocumento.aspx.cs">
+      <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTipoDeDocumento.aspx.designer.cs">
+      <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTipoDeEquipos.aspx.cs">
+      <DependentUpon>frmTipoDeEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTipoDeEquipos.aspx.designer.cs">
+      <DependentUpon>frmTipoDeEquipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTelefonoCliente.aspx.cs">
+      <DependentUpon>frmTelefonoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTelefonoCliente.aspx.designer.cs">
+      <DependentUpon>frmTelefonoCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMarca.aspx.cs">
+      <DependentUpon>frmMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMarca.aspx.designer.cs">
+      <DependentUpon>frmMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEquipos.aspx.cs">
+      <DependentUpon>frmEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEquipos.aspx.designer.cs">
+      <DependentUpon>frmEquipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpleado.aspx.cs">
+      <DependentUpon>frmEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEmpleado.aspx.designer.cs">
+      <DependentUpon>frmEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDireccionesClientes.aspx.cs">
+      <DependentUpon>frmDireccionesClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDireccionesClientes.aspx.designer.cs">
+      <DependentUpon>frmDireccionesClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.aspx.cs">
+      <DependentUpon>frmClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmClientes.aspx.designer.cs">
+      <DependentUpon>frmClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlquiler.aspx.cs">
+      <DependentUpon>frmAlquiler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAlquiler.aspx.designer.cs">
+      <DependentUpon>frmAlquiler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio.aspx.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmInicio.aspx.designer.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.Master.cs">
       <DependentUpon>frmPrincipal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -95,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

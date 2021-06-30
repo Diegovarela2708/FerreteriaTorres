@@ -8,12 +8,47 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 98%;
+            border: 3px solid #000000;
+        }
+        .auto-style2 {
+            width: 211px;
+            height: 103px;
+        }
+        .auto-style3 {
+            width: 20%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
+                <tr>
+                    <td class="auto-style3">
+                        <img alt="" class="auto-style2" src="Imagenes/Loguito.JPG" /></td>
+                    <td>
+                        <asp:ContentPlaceHolder ID="Encabezado" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:ContentPlaceHolder ID="Menu" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                    <td>
+                        <asp:ContentPlaceHolder ID="Cuerpo" runat="server">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            </asp:UpdatePanel>
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>
