@@ -110,7 +110,7 @@
         <tr>
             <td>
                 <asp:Panel ID="pnlOpciones" runat="server">
-                    <asp:Menu ID="mnuOpciones" runat="server" Orientation="Horizontal" RenderingMode="Table" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Bold="True" Font-Size="Medium" ForeColor="Red" Width="100%">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                         <Items>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
@@ -118,7 +118,7 @@
                             <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
                         </Items>
-                        <StaticMenuItemStyle Width="60px" />
+                        <StaticMenuItemStyle Font-Bold="True" ForeColor="Red" Width="10px" />
                     </asp:Menu>
                 </asp:Panel>
             </td>
