@@ -25,7 +25,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
+&nbsp;<table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
                 <tr>
                     <td class="auto-style3">
                         <img alt="" class="auto-style2" src="Imagenes/Loguito.JPG" /></td>

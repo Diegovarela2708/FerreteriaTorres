@@ -43,6 +43,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="libConexionBD">
+      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libConexionBD\libConexionBD\bin\Debug\libConexionBD.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarCBList">
+      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarCBList\libLlenarCBList\bin\Debug\libLlenarCBList.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarCombos">
+      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarCombos\libLlenarCombos\bin\Debug\libLlenarCombos.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarGrids">
+      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarGrids\libLlenarGrids\bin\Debug\libLlenarGrids.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarRBList">
+      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarRBList\libLlenarRBList\bin\Debug\libLlenarRBList.dll</HintPath>
+    </Reference>
+    <Reference Include="libParametros">
+      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libParametros\libParametros\bin\Debug\libParametros.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -83,6 +101,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsTipoEquipos.cs" />
     <Compile Include="frmTipoDeDocumento.aspx.cs">
       <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
