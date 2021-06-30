@@ -44,22 +44,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="libConexionBD">
-      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libConexionBD\libConexionBD\bin\Debug\libConexionBD.dll</HintPath>
+      <HintPath>..\..\libConexionBD\libConexionBD\bin\Debug\libConexionBD.dll</HintPath>
     </Reference>
     <Reference Include="libLlenarCBList">
-      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarCBList\libLlenarCBList\bin\Debug\libLlenarCBList.dll</HintPath>
+      <HintPath>..\..\libLlenarCBList\libLlenarCBList\bin\Debug\libLlenarCBList.dll</HintPath>
     </Reference>
     <Reference Include="libLlenarCombos">
-      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarCombos\libLlenarCombos\bin\Debug\libLlenarCombos.dll</HintPath>
+      <HintPath>..\..\libLlenarCombos\libLlenarCombos\bin\Debug\libLlenarCombos.dll</HintPath>
     </Reference>
     <Reference Include="libLlenarGrids">
-      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarGrids\libLlenarGrids\bin\Debug\libLlenarGrids.dll</HintPath>
+      <HintPath>..\..\libLlenarGrids\libLlenarGrids\bin\Debug\libLlenarGrids.dll</HintPath>
     </Reference>
     <Reference Include="libLlenarRBList">
-      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libLlenarRBList\libLlenarRBList\bin\Debug\libLlenarRBList.dll</HintPath>
+      <HintPath>..\..\libLlenarRBList\libLlenarRBList\bin\Debug\libLlenarRBList.dll</HintPath>
     </Reference>
     <Reference Include="libParametros">
-      <HintPath>..\..\..\Users\omair\OneDrive\Escritorio\Nube\Universidad\Cuarto Semestre\Software\Guia # 5\libreriasComunes\libParametros\libParametros\bin\Debug\libParametros.dll</HintPath>
+      <HintPath>..\..\libParametros\libParametros\bin\Debug\libParametros.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />

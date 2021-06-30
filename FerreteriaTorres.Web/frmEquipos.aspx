@@ -92,19 +92,38 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Panel ID="pnlOpciones" runat="server">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Bold="True" ForeColor="Red" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                        <Items>
+                            <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
+                            <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
+                            <asp:MenuItem Text="Eliminar" Value="opcEliminar"></asp:MenuItem>
+                            <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
+                            <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
+                        </Items>
+                        <StaticMenuItemStyle HorizontalPadding="60px" />
+                    </asp:Menu>
+                </asp:Panel>
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td class="auto-style14">
+                <asp:GridView ID="GridView1" runat="server" Font-Bold="True" Width="100%">
+                    <HeaderStyle ForeColor="Red" />
+                    <RowStyle ForeColor="Red" HorizontalAlign="Center" />
+                </asp:GridView>
+            </td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td class="auto-style15"></td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                <img alt="" class="auto-style13" src="Imagenes/Loguito.JPG" /></td>
         </tr>
     </table>
 </asp:Content>
@@ -148,6 +167,17 @@
             text-align: left;
             width: 40%;
             height: 34px;
+        }
+        .auto-style13 {
+            width: 151px;
+            height: 60px;
+            float: right;
+        }
+        .auto-style14 {
+            height: 161px;
+        }
+        .auto-style15 {
+            height: 26px;
         }
     </style>
 </asp:Content>
