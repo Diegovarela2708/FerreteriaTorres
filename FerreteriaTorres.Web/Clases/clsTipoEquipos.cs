@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace FerreteriaTorres.Web.Clases
 {
@@ -29,6 +30,34 @@ namespace FerreteriaTorres.Web.Clases
         #endregion
 
         #region "Metodos Pubicos"
+
+        public bool LlenarCombo(DropDownList Combo)
+        {
+            try
+            {
+                if (Combo == null)
+                {
+                    Error = "Error";
+                    return false;
+                }
+                strSQL = "EXEC ComboTipoEquipo;";
+                clsGenerales ObjGen = new clsGenerales();
+                if (!ObjGen.llenarCombo(strApp,Combo,strSQL,"Clave","Dato"))
+                {
+                    Error = ObjGen.Error;
+                    ObjGen = null;
+                    return false;
+                }
+                
+                ObjGen = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
 
         #endregion
     }
