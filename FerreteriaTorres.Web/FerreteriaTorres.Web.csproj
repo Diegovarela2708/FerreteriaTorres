@@ -98,6 +98,9 @@
     <Content Include="Global.asax" />
     <Content Include="Imagenes\Buscar.jpg" />
     <Content Include="Imagenes\Loguito.JPG" />
+    <Content Include="SQL\BDFerreteria.sql" />
+    <Content Include="SQL\Insert.sql" />
+    <Content Include="SQL\Procedimientos.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
