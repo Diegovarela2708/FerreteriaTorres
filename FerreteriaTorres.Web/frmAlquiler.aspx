@@ -4,7 +4,7 @@
 
 
 
-    <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
+    &nbsp;<table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
        <tr>
             <td class="auto-style5"><strong>Alquiler</strong></td>
         </tr>

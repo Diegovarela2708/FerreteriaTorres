@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td>
-                <asp:GridView ID="GridView1" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" ForeColor="Red" Width="100%">
+                <asp:GridView ID="grvDatos" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" ForeColor="Red" Width="100%">
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>
             </td>

@@ -4,7 +4,7 @@
 
     <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
         <tr>
-            <td class="auto-style5"><strong>TIPO DE EQUIPOS</strong></td>
+            <td class="auto-style5"><strong>Tipo De Equipo</strong></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td>
-                <asp:GridView ID="GridView1" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" ForeColor="Red" Width="100%">
+                <asp:GridView ID="grvDatos" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" ForeColor="Red" Width="100%">
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
@@ -78,6 +78,7 @@
             text-align: center;
             font-size: x-large;
             color: #CC0000;
+            font-family: "comic Sans MS";
         }
         .auto-style6 {
             width: 100%;
