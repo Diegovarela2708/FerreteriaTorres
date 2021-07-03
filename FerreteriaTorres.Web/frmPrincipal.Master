@@ -20,6 +20,9 @@
         .auto-style3 {
             width: 20%;
         }
+        .auto-style4 {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -37,6 +40,38 @@
                 <tr>
                     <td class="auto-style3">
                         <asp:ContentPlaceHolder ID="Menu" runat="server">
+                            <table align="center" class="auto-style4">
+                                <tr>
+                                    <td>
+                                        <asp:TreeView ID="trvMenuPpal" runat="server" ExpandDepth="1" ForeColor="Black" ShowLines="True">
+                                            <HoverNodeStyle BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Font-Bold="True" Font-Size="Small" ForeColor="Red" />
+                                            <LeafNodeStyle HorizontalPadding="12px" />
+                                            <Nodes>
+                                                <asp:TreeNode NavigateUrl="~/frmInicio.aspx" Text="Inicio" Value="mnuInicio"></asp:TreeNode>
+                                                <asp:TreeNode Text="Servicios" Value="mnuServicios">
+                                                    <asp:TreeNode NavigateUrl="~/frmAlquiler.aspx" Text="Alquiler" Value="opcAlquiler"></asp:TreeNode>
+                                                </asp:TreeNode>
+                                                <asp:TreeNode Text="Maquinaria" Value="mnuMaquinaria">
+                                                    <asp:TreeNode NavigateUrl="~/frmEquipos.aspx" Text="Equipos" Value="opcEquipos">
+                                                        <asp:TreeNode NavigateUrl="~/frmTipoDeEquipos.aspx" Text="Tipo De Equipo" Value="opcTipoEquip"></asp:TreeNode>
+                                                        <asp:TreeNode NavigateUrl="~/frmMarca.aspx" Text="Marca" Value="opcMarca"></asp:TreeNode>
+                                                    </asp:TreeNode>
+                                                </asp:TreeNode>
+                                                <asp:TreeNode Text="Personal" Value="mnuPersonal">
+                                                    <asp:TreeNode NavigateUrl="~/frmEmpleado.aspx" Text="Empleado" Value="opcEmpleado"></asp:TreeNode>
+                                                </asp:TreeNode>
+                                                <asp:TreeNode Text="Clientes" Value="mnuClientes">
+                                                    <asp:TreeNode NavigateUrl="~/frmClientes.aspx" Text="Cliente" Value="opcCliente">
+                                                        <asp:TreeNode NavigateUrl="~/frmTipoDeDocumento.aspx" Text="Tipo De Documento" Value="opcTipoDoc"></asp:TreeNode>
+                                                        <asp:TreeNode NavigateUrl="~/frmDireccionesClientes.aspx" Text="Dirección Cliente" Value="opcDireCliente"></asp:TreeNode>
+                                                        <asp:TreeNode NavigateUrl="~/frmTelefonoCliente.aspx" Text="Telefono Cliente" Value="opcTelCliente"></asp:TreeNode>
+                                                    </asp:TreeNode>
+                                                </asp:TreeNode>
+                                            </Nodes>
+                                        </asp:TreeView>
+                                    </td>
+                                </tr>
+                            </table>
                         </asp:ContentPlaceHolder>
                     </td>
                     <td>
