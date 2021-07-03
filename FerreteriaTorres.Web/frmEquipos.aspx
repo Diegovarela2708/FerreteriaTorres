@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td>
-                <table align="center" cellpadding="3" cellspacing="3" class="auto-style6">
+                <table align="center" cellpadding="3" cellspacing="3" class="auto-style6" id="TblCampos">
                     <tr>
                         <td class="auto-style9"><strong>IdEquipo:</strong></td>
                         <td class="auto-style10">
@@ -71,17 +71,21 @@
                     <tr>
                         <td class="auto-style9"><strong>Caracteristicas:</strong></td>
                         <td class="auto-style10">
-                            <asp:TextBox ID="txtCaracteristicas" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCaracteristicas" runat="server" Height="58px" TextMode="MultiLine" Width="322px"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Creado Por:</strong></td>
+                        <td class="auto-style7" style="width: 40%">
+                            <asp:Label ID="lblCreadoPor" runat="server" Text="Creado Por:"></asp:Label>
+                        </td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtCreadoPor" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Fecha De Creado:</strong></td>
+                        <td class="auto-style7" style="width: 40%">
+                            <asp:Label ID="lblFechaCreado" runat="server" Text="Fecha De Creado:"></asp:Label>
+                        </td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtFechaCreado" runat="server"></asp:TextBox>
                         </td>
@@ -95,13 +99,14 @@
         <tr>
             <td>
                 <asp:Panel ID="pnlOpciones" runat="server">
-                    <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Bold="True" ForeColor="Red" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Bold="True" ForeColor="Red" Orientation="Horizontal" RenderingMode="Table" Width="100%" OnMenuItemClick="mnuOpciones_MenuItemClick">
                         <Items>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
                             <asp:MenuItem Text="Eliminar" Value="opcEliminar"></asp:MenuItem>
                             <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
+                            <asp:MenuItem Text="Cancelar" Value="opcCancelar"></asp:MenuItem>
                         </Items>
                         <StaticMenuItemStyle HorizontalPadding="60px" />
                     </asp:Menu>
@@ -113,7 +118,7 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                <asp:GridView ID="GridView1" runat="server" Font-Bold="True" Width="100%">
+                <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%">
                     <HeaderStyle ForeColor="Red" />
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>

@@ -105,6 +105,15 @@ namespace FerreteriaTorres.Web
         protected global::System.Web.UI.WebControls.TextBox txtCaracteristicas;
 
         /// <summary>
+        /// Control lblCreadoPor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCreadoPor;
+
+        /// <summary>
         /// Control txtCreadoPor.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace FerreteriaTorres.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCreadoPor;
+
+        /// <summary>
+        /// Control lblFechaCreado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaCreado;
 
         /// <summary>
         /// Control txtFechaCreado.
@@ -141,13 +159,13 @@ namespace FerreteriaTorres.Web
         protected global::System.Web.UI.WebControls.Menu mnuOpciones;
 
         /// <summary>
-        /// Control GridView1.
+        /// Control grvDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView grvDatos;
 
         /// <summary>
         /// Control lblMsj.
