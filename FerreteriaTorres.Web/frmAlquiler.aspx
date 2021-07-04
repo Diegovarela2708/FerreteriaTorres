@@ -9,15 +9,17 @@
             <td class="auto-style5"><strong>Alquiler</strong></td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td class="auto-style20"></td>
         </tr>
         <tr>
             <td class="auto-style7">
                 <table align="center" cellpadding="3" cellspacing="3" class="auto-style6">
                     <tr>
-                        <td class="auto-style8" style="width: 25%"><strong>Tipo De Documento:</strong></td>
+                        <td class="auto-style8" style="width: 25%"><strong>Numero De Documento:</strong></td>
                         <td style="width: 20%">
                             <asp:TextBox ID="txtNroDocumento" runat="server"></asp:TextBox>
+                        &nbsp;
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.jpg" />
                         </td>
                         <td class="auto-style8" style="width: 15%"><strong>Fecha:</strong></td>
                         <td style="width: 20%">
@@ -32,7 +34,7 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:GridView ID="GridView1" runat="server" Width="100%" Font-Bold="True" ForeColor="Red" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px">
+                <asp:GridView ID="grvDatos" runat="server" Width="100%" Font-Bold="True" ForeColor="Red" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px">
                     <RowStyle HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
@@ -200,6 +202,9 @@
         .auto-style19 {
             height: 31px;
             text-align: center;
+        }
+        .auto-style20 {
+            height: 31px;
         }
     </style>
 </asp:Content>
