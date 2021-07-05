@@ -19,8 +19,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Descripción:</strong></td>
-                        <td class="auto-style8" style="width: 40%">
+                        <td class="auto-style9"><strong>Descripción:</strong></td>
+                        <td class="auto-style10">
                             <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
                         </td>
                     </tr>
@@ -118,7 +118,7 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%">
+                <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%" OnSelectedIndexChanged="grvDatos_SelectedIndexChanged">
                     <HeaderStyle ForeColor="Red" />
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>

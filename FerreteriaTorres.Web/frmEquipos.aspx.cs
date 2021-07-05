@@ -120,7 +120,7 @@ namespace FerreteriaTorres.Web
                     return;
                 }
                 Mensaje("Rgtro. Grabado con éxito");
-                LlenarGridAsoc();
+                LlenarGridEquipos();
 
 
             }
@@ -167,7 +167,7 @@ namespace FerreteriaTorres.Web
             }
         }
 
-        private void LlenarGridAsoc()
+        private void LlenarGridEquipos()
         {
             try
             {
@@ -216,7 +216,7 @@ namespace FerreteriaTorres.Web
                 LlenarComboTipoEquipo();
                 LLenarComboMarcas();
                 Deshabilitar();
-                LlenarGridAsoc();
+                LlenarGridEquipos();
                 this.rblTipoEquipo.SelectedIndex = 0;
                 this.rblMarca.SelectedIndex = 0;
 
@@ -254,6 +254,8 @@ namespace FerreteriaTorres.Web
                     break;
                 case "opcgrabar":
                     Grabar();
+                    Limpiar();
+                    Deshabilitar();
                     break;
 
                 case "opccancelar":
@@ -262,6 +264,7 @@ namespace FerreteriaTorres.Web
                     mnuOpciones.FindItem("opcModificar").Enabled = true;
                     mnuOpciones.FindItem("opcGrabar").Enabled = true;
                     mnuOpciones.FindItem("opcAgregar").Enabled = true;
+                    mnuOpciones.FindItem("opcCancelar").Enabled = false;
                     break;
             }
         }
