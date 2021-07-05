@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Con_FerreteriaTorres.xml" />
     <Content Include="frmTipoDeDocumento.aspx" />
     <Content Include="frmTipoDeEquipos.aspx" />
     <Content Include="frmTelefonoCliente.aspx" />
@@ -104,6 +105,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsAlquiler.cs" />
     <Compile Include="Clases\clsEquipos.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsMarcas.cs" />

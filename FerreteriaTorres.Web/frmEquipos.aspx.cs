@@ -1,4 +1,4 @@
-﻿using FerreteriaTorres.Web.Clases;
+﻿ using FerreteriaTorres.Web.Clases;
 using System;
 using System.Web.UI.WebControls;
 
@@ -104,6 +104,10 @@ namespace FerreteriaTorres.Web
                         ObjclsE = null;
                         return;
                     }
+                }
+                else if (intOpcion == 2)
+                {
+
                 }
 
 
@@ -226,7 +230,7 @@ namespace FerreteriaTorres.Web
                 mnuOpciones.FindItem("opcAgregar").Enabled = true;
                 mnuOpciones.FindItem("opcGrabar").Enabled = false;
                 mnuOpciones.FindItem("opcCancelar").Enabled = false;
-
+                
             }
         }
 
