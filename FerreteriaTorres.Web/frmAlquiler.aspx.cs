@@ -125,12 +125,50 @@ namespace FerreteriaTorres.Web
             }
         }
 
+        private void Limpiar ()
+        {
+            this.txtNroDocumento.Text = string.Empty;
+            this.txtFecha.Text = string.Empty;
+            this.txtDireCliente.Text = string.Empty; 
+            this.txtIdAlquiler.Text = string.Empty; 
+            this.txtIdEquipo.Text = string.Empty;
+            this.txtDescripcion.Text = string.Empty;
+            this.txtCantidad.Text = string.Empty;
+            this.txtValorUnitario.Text = string.Empty;
+            this.txtCantidadAlquilada.Text = string.Empty;
+            this.txtPorcentajeDescuento.Text = string.Empty;
+            this.txtFechaEntrega.Text = string.Empty;
+            this.txtFechaDevolucion.Text = string.Empty;
+        }
+
 
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack) // Al cargarse por primera vez
 
+            {
+                strApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                Deshabilitar();
+                LlenarGridAlquiler();
+                this.txtNroDocumento.Focus();
+            }
+        }
+
+        protected void mnuOpciones_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            Mensaje(string.Empty);
+            switch (this.mnuOpciones.SelectedValue.ToLower())
+            {
+                case "opcagregar":
+                    intOpcion = 1;
+                    Habilitar();
+                    this.txtNroDocumento.ReadOnly = false;
+                    Limpiar();
+                    this.txtNroDocumento.Focus();
+                    break;
+            }
         }
     }
 }

@@ -17,7 +17,7 @@
                     <tr>
                         <td class="auto-style8" style="width: 25%"><strong>Numero De Documento:</strong></td>
                         <td style="width: 20%">
-                            <asp:TextBox ID="txtNroDocumento" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtNroDocumento" runat="server" MaxLength="15"></asp:TextBox>
                         &nbsp;
                             <asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.jpg" />
                         </td>
@@ -48,7 +48,7 @@
                     <tr>
                         <td class="auto-style11"><strong>Dirección Cliente:</strong></td>
                         <td class="auto-style10">
-                            <asp:TextBox ID="txtDireCliente" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtDireCliente" runat="server" MaxLength="20"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
                     <tr>
                         <td class="auto-style13"><strong>IdEquipo:</strong></td>
                         <td class="auto-style14">
-                            <asp:TextBox ID="txtIdEquipo" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtIdEquipo" runat="server" MaxLength="20"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -114,7 +114,7 @@
         <tr>
             <td class="auto-style17">
                 <asp:Panel ID="pnlOpciones" runat="server">
-                    <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Orientation="Horizontal" RenderingMode="Table" Width="100%" OnMenuItemClick="mnuOpciones_MenuItemClick">
                         <Items>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>

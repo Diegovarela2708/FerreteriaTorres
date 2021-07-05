@@ -117,12 +117,11 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style14">
-                <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%" OnSelectedIndexChanged="grvDatos_SelectedIndexChanged">
-                    <HeaderStyle ForeColor="Red" />
-                    <RowStyle ForeColor="Red" HorizontalAlign="Center" />
+             <td>
+                 <asp:GridView ID="grvDatos" runat="server" Width="100%" Font-Bold="True" ForeColor="Red" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px">
+                    <RowStyle HorizontalAlign="Center" />
                 </asp:GridView>
-            </td>
+             </td>
         </tr>
         <tr>
             <td class="auto-style15"></td>
