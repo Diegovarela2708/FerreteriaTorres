@@ -108,6 +108,7 @@
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
                             <asp:MenuItem Text="Cancelar" Value="opcCancelar"></asp:MenuItem>
                         </Items>
+                        <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
                         <StaticMenuItemStyle HorizontalPadding="60px" />
                     </asp:Menu>
                 </asp:Panel>

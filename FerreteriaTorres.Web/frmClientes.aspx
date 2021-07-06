@@ -64,6 +64,7 @@
                             <asp:MenuItem Text="Adiccionar Dirección" Value="opcAdiccDire"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar Dirección" Value="opcModDire"></asp:MenuItem>
                         </Items>
+                        <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
                         <StaticMenuItemStyle HorizontalPadding="20px" Font-Bold="True" />
                     </asp:Menu>
                 </asp:Panel>

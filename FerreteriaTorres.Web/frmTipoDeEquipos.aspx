@@ -51,6 +51,7 @@
                             <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
                         </Items>
+                        <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
                         <StaticMenuItemStyle HorizontalPadding="60px" Width="20px" />
                     </asp:Menu>
                 </asp:Panel>
@@ -61,7 +62,9 @@
         </tr>
         <tr>
             <td class="auto-style12">
+                <strong>
                 <asp:Label ID="lblMsj" runat="server"></asp:Label>
+                </strong>
             </td>
         </tr>
         <tr>
@@ -100,6 +103,7 @@
         }
         .auto-style12 {
             text-align: center;
+            height: 31px;
         }
     </style>
 </asp:Content>
