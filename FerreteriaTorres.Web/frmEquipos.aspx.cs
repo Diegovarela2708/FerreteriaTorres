@@ -98,16 +98,18 @@ namespace FerreteriaTorres.Web
                  Activo, strCaracteristicas, strCreadoPor, FechaCreado);
                 if (intOpcion == 1)
                 {
-                    if (!ObjclsE.grabarMaestro())
+                    if (!ObjclsE.GrabarMaestro())
                     {
                         Mensaje(ObjclsE.Error);
                         ObjclsE = null;
                         return;
                     }
                 }
-                else if (intOpcion == 2)
+                else if (!ObjclsE.ModificarMaestro())
                 {
-
+                    Mensaje(ObjclsE.Error);
+                    ObjclsE = null;
+                    return;
                 }
 
 
@@ -251,6 +253,14 @@ namespace FerreteriaTorres.Web
                     mnuOpciones.FindItem("opcCancelar").Enabled = true;
                     break;
                 case "opcmodificar":
+                    intOpcion = 2;
+                    Habilitar();
+                    mnuOpciones.FindItem("opcConsultar").Enabled = false;
+                    mnuOpciones.FindItem("opcEliminar").Enabled = false;
+                    mnuOpciones.FindItem("opcModificar").Enabled = false;
+                    mnuOpciones.FindItem("opcGrabar").Enabled = true;
+                    mnuOpciones.FindItem("opcAgregar").Enabled = false;
+                    mnuOpciones.FindItem("opcCancelar").Enabled = true;
                     break;
                 case "opceliminar":
                     break;
@@ -263,6 +273,7 @@ namespace FerreteriaTorres.Web
                     break;
 
                 case "opccancelar":
+                    Deshabilitar();
                     mnuOpciones.FindItem("opcConsultar").Enabled = true;
                     mnuOpciones.FindItem("opcEliminar").Enabled = true;
                     mnuOpciones.FindItem("opcModificar").Enabled = true;
