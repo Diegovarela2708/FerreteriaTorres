@@ -13,5 +13,10 @@ namespace FerreteriaTorres.Web
         {
 
         }
+
+        protected void trvMenuPpal_SelectedNodeChanged()
+        {
+
+        }
     }
 }

@@ -63,6 +63,7 @@
                             <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
                         </Items>
+                        <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
                         <StaticMenuItemStyle HorizontalPadding="60px" Font-Bold="True" />
                     </asp:Menu>
                 </asp:Panel>

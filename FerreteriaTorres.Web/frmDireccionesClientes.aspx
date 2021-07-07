@@ -52,7 +52,8 @@
                             <asp:MenuItem Text="Modificar Dirección" Value="opcModificarDire"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar Ciudad" Value="opcModificarCiu"></asp:MenuItem>
                         </Items>
-                        <StaticMenuItemStyle HorizontalPadding="110px" />
+                        <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
+                        <StaticMenuItemStyle HorizontalPadding="160px" />
                     </asp:Menu>
                 </asp:Panel>
             </td>
