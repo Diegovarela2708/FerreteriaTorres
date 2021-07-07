@@ -248,6 +248,23 @@ namespace FerreteriaTorres.Web.Clases
             }
         }
 
+        public bool Eliminar(string IdEquipo)
+        {
+
+            try
+            {
+                strSQL = "EXEC EliminarEquipo '" + IdEquipo + "';";
+                Grabar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+
+
+        }
         #endregion
 
     }

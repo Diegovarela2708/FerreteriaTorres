@@ -236,6 +236,34 @@ namespace FerreteriaTorres.Web
             ObjclsE = null;
         }
 
+        private void Eliminar()
+        {
+            clsEquipos ObjclsE = new clsEquipos(strApp);
+            if (!ObjclsE.Eliminar(strIdEquipo))
+            {
+                Limpiar();
+                Mensaje(ObjclsE.Error);
+                ObjclsE = null;
+                return;
+            }
+            strIdEquipo = ObjclsE.strIdEquipo;
+            ObjclsE = null;
+            if (strIdEquipo == "-1")
+            {
+                Mensaje("El Equipo no se puede eliminar");
+                return;
+            }
+            else if (strIdEquipo == "0")
+            {
+                Mensaje("Error al procesar registro, Consultar con el Admón del sistema");
+                return;
+            }
+            Limpiar();
+            Deshabilitar();
+            Mensaje("Equipo Eliminado con exito");
+            LlenarGridEquipos();
+        }
+
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -299,6 +327,26 @@ namespace FerreteriaTorres.Web
                     
                     break;
                 case "opceliminar":
+                    try
+                    {
+                        Mensaje(string.Empty);
+                        strIdEquipo = this.txtIdEquipo.Text.Trim();
+                        if (string.IsNullOrEmpty(strIdEquipo))
+                        {
+                            Mensaje("Número de documento no válido");
+                            return;
+                        }                        
+                        Eliminar();
+                        mnuOpciones.FindItem("opcConsultar").Enabled = true;
+                        mnuOpciones.FindItem("opcEliminar").Enabled = true;
+                        mnuOpciones.FindItem("opcModificar").Enabled = true;
+                        mnuOpciones.FindItem("opcGrabar").Enabled = true;
+                        mnuOpciones.FindItem("opcAgregar").Enabled = true;
+                        mnuOpciones.FindItem("opcCancelar").Enabled = false;
+
+                    }
+                    catch (Exception ex)
+                    { Mensaje(ex.Message); }
                     break;
                 case "opcconsultar":
                     intOpcion = 0;
