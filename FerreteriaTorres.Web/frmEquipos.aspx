@@ -19,7 +19,7 @@
 
                             &nbsp;
 
-                            <asp:ImageButton ID="btnBuscar" runat="server" Height="23px" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Imagenn.png" Width="33px" OnClick="btnBuscar_Click" />
+                            <asp:ImageButton ID="btnBuscar" runat="server" Height="23px" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.png" Width="33px" OnClick="btnBuscar_Click" />
                         </td>
                     </tr>
                     <tr>
@@ -123,7 +123,12 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%">
+                <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%" OnRowCommand="grvDatos_RowCommand">
+                    <Columns>
+                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/Imagenes/Buscar.png" ShowSelectButton="True">
+                        <ItemStyle Height="23px" HorizontalAlign="Center" Width="33px" />
+                        </asp:CommandField>
+                    </Columns>
                     <HeaderStyle ForeColor="Red" />
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>

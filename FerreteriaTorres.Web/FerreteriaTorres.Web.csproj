@@ -99,9 +99,7 @@
     <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\black-and-white-cogs-gears-industrial-wallpaper-preview.jpg" />
-    <Content Include="Imagenes\Imagen.png" />
-    <Content Include="Imagenes\Imagenn.png" />
-    <Content Include="Imagenes\Imagennn.png" />
+    <Content Include="Imagenes\Buscar.png" />
     <Content Include="Imagenes\Loguito.JPG" />
     <Content Include="SQL\BDFerreteria.sql" />
     <Content Include="SQL\Insert.sql" />
