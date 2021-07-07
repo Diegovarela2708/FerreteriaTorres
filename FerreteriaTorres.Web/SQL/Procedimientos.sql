@@ -80,6 +80,49 @@ AS
  END
  
 
- -- EXEC GrabarEquipo '11','Prueba1 ', 1 ,1500 , 120, 10 , 10,8,1,prueba,' Diego ','02-07-2021 10:15';
+ -- EXEC GrabarEquipo '222','Prueba1 ', 1 ,1500 , 120, 10 , 10,8,1,prueba,' Diego ','02-07-2021 10:15';
  -- EXEC USP_Asoc_BuscarXcodigo '70500600';
+ END
+
+ GO
+CREATE PROCEDURE EditarEquipo
+@strIdEquipo VARCHAR(20),
+@strDescripcion VARCHAR(max),
+@intIdTipoEquipo int,
+@fltVrUnit float,
+@fltVrPrestamo float,
+@intImpuesto int,
+@intCantExistencia int,
+@intIdMarca int,
+@Activo bit,
+@strCaracteristicas varchar(max),
+@strCreadoPor varchar(20),
+@FechaCreado datetime
+As
+ BEGIN
+ BEGIN TRANSACTION tx
+ UPDATE Equipos
+ SET
+strDescripcion = @strDescripcion ,
+intIdTipoEquipo=@intIdTipoEquipo ,
+fltVrUnit=@fltVrUnit ,
+fltVrPrestamo=@fltVrPrestamo ,
+intImpuesto=@intImpuesto ,
+intCantExistencia=@intCantExistencia ,
+intIdMarca=@intIdMarca ,
+Activo=@Activo ,
+strCaracteristicas=@strCaracteristicas ,
+strCreadoPor =@strCreadoPor ,
+FechaCreado=@FechaCreado
+ WHERE strIdEquipo = @strIdEquipo
+ IF ( @@ERROR > 0 )
+ Begin
+ ROLLBACK TRANSACTION tx
+ SELECT 0 AS Rpta
+ Return
+ End
+ COMMIT TRANSACTION tx
+ SELECT @strIdEquipo AS Rpta
+ Return
+ -- EXEC EditarEquipo '222','Prueba11234546 ', 1 ,1500 , 120, 10 , 10,8,1,prueba,' Diego ','02-07-2021 10:15';
  END

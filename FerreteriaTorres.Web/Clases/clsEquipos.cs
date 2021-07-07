@@ -174,7 +174,7 @@ namespace FerreteriaTorres.Web.Clases
             return true;
         }
 
-        public bool grabarMaestro()
+        public bool GrabarMaestro()
         {
             if (!Validar())
                 return false;
@@ -184,6 +184,18 @@ namespace FerreteriaTorres.Web.Clases
             intAct + "', '" + strCaracteristicas + "', '" + strCreadoPor + "', '" + FechaCreado+"';";
             return Grabar();
         }
+
+        public bool ModificarMaestro()
+        {
+            if (!Validar())
+                return false;
+            int intAct = Activo ? 1 : 0;
+            strSQL = "EXEC EditarEquipo '" + strIdEquipo + "', '" + strDescripcion + "', '" + intIdTipoEquipo + "', '" + fltVrUnit + "', '" +
+            fltVrPrestamo + "', '" + intImpuesto + "', '" + intCantExistencia + "', '" + intIdMarca + "', '" +
+            intAct + "', '" + strCaracteristicas + "', '" + strCreadoPor + "', '" + FechaCreado + "';";
+            return Grabar();
+        }
+
         #endregion
 
     }
