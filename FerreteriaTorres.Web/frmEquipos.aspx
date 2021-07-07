@@ -16,6 +16,10 @@
                         <td class="auto-style9"><strong>IdEquipo:</strong></td>
                         <td class="auto-style10">
                             <asp:TextBox ID="txtIdEquipo" runat="server"></asp:TextBox>
+
+                            &nbsp;
+
+                            <asp:ImageButton ID="btnBuscar" runat="server" Height="23px" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Imagenn.png" Width="33px" />
                         </td>
                     </tr>
                     <tr>
@@ -181,9 +185,6 @@
             width: 151px;
             height: 60px;
             float: right;
-        }
-        .auto-style14 {
-            height: 161px;
         }
         .auto-style15 {
             height: 26px;

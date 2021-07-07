@@ -7,7 +7,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style6"><strong>Los Torres Ferreteros SAS - FRT</strong></td>
+            <td class="auto-style6"><strong>Torres Ferreteros SAS - FRT</strong></td>
         </tr>
         <tr>
             <td class="auto-style5"><strong>Medellin</strong></td>

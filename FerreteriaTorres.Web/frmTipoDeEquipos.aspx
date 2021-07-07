@@ -16,6 +16,8 @@
                         <td class="auto-style9" style="width: 40%"><strong>IdEquipo:</strong></td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtEquipo" runat="server"></asp:TextBox>
+                        &nbsp;
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="23px" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Imagenn.png" Width="33px" />
                         </td>
                     </tr>
                     <tr>

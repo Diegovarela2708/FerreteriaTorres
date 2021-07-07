@@ -86,6 +86,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Con_FerreteriaTorres.xml" />
+    <Content Include="default.aspx" />
+    <Content Include="fullscreen-login\assets\css\reset.css" />
+    <Content Include="fullscreen-login\assets\css\style.css" />
+    <Content Include="fullscreen-login\assets\css\supersized.css" />
+    <Content Include="fullscreen-login\assets\img\backgrounds\1.jpg" />
+    <Content Include="fullscreen-login\assets\img\backgrounds\2.jpg" />
+    <Content Include="fullscreen-login\assets\img\backgrounds\3.jpg" />
+    <Content Include="fullscreen-login\assets\img\facebook.png" />
+    <Content Include="fullscreen-login\assets\img\progress.gif" />
+    <Content Include="fullscreen-login\assets\img\twitter.png" />
+    <Content Include="fullscreen-login\assets\js\jquery-1.8.2.min.js" />
+    <Content Include="fullscreen-login\assets\js\scripts.js" />
+    <Content Include="fullscreen-login\assets\js\supersized-init.js" />
+    <Content Include="fullscreen-login\assets\js\supersized.3.2.7.min.js" />
+    <Content Include="fullscreen-login\index.html" />
     <Content Include="frmTipoDeDocumento.aspx" />
     <Content Include="frmTipoDeEquipos.aspx" />
     <Content Include="frmTelefonoCliente.aspx" />
@@ -98,7 +113,8 @@
     <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\black-and-white-cogs-gears-industrial-wallpaper-preview.jpg" />
-    <Content Include="Imagenes\Buscar.jpg" />
+    <Content Include="Imagenes\Imagen.png" />
+    <Content Include="Imagenes\Imagenn.png" />
     <Content Include="Imagenes\Loguito.JPG" />
     <Content Include="SQL\BDFerreteria.sql" />
     <Content Include="SQL\Insert.sql" />
@@ -111,6 +127,13 @@
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsMarcas.cs" />
     <Compile Include="Clases\clsTipoEquipos.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmTipoDeDocumento.aspx.cs">
       <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="frmPrincipal.Master" />
+    <Content Include="fullscreen-login\fullscreen-login.psd" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
