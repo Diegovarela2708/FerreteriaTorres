@@ -19,7 +19,7 @@
 
                             &nbsp;
 
-                            <asp:ImageButton ID="btnBuscar" runat="server" Height="23px" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Imagenn.png" Width="33px" />
+                            <asp:ImageButton ID="btnBuscar" runat="server" Height="23px" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Imagenn.png" Width="33px" OnClick="btnBuscar_Click" />
                         </td>
                     </tr>
                     <tr>
@@ -91,7 +91,7 @@
                             <asp:Label ID="lblFechaCreado" runat="server" Text="Fecha De Creado:"></asp:Label>
                         </td>
                         <td class="auto-style8" style="width: 40%">
-                            <asp:TextBox ID="txtFechaCreado" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtFechaCreado" runat="server" TextMode="DateTime"></asp:TextBox>
                         </td>
                     </tr>
                 </table>

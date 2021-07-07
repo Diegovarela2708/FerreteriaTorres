@@ -196,6 +196,58 @@ namespace FerreteriaTorres.Web.Clases
             return Grabar();
         }
 
+        public bool Buscar(string IdEquipo)
+        {
+            try
+            {
+                strSQL = "EXEC BuscarEquipoCodigo '" + IdEquipo + "';";
+                clsConexionBD objCnx = new clsConexionBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                myReader = objCnx.dataReader_Lleno;
+                if (!myReader.HasRows)
+                {
+                    Error = "No existe registro con Nro. de documento: " + IdEquipo;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+
+               
+
+                myReader.Read();
+                strIdEquipo = myReader.GetString(0);
+                strDescripcion = myReader.GetString(1);
+                intIdTipoEquipo = myReader.GetInt32(2);
+                fltVrUnit = Convert.ToSingle( myReader.GetDecimal(3));
+                //
+                fltVrPrestamo = Convert.ToSingle(myReader.GetDecimal(4));
+                intImpuesto = myReader.GetInt32(5);
+                intCantExistencia = myReader.GetInt32(6);
+                intIdMarca = myReader.GetInt32(7);
+                //FechaCreado
+                Activo = myReader.GetBoolean(8);
+                strCaracteristicas = myReader.GetString(9);
+                strCreadoPor = myReader.GetString(10);
+                FechaCreado = myReader.GetDateTime(11);
+                myReader.Close();
+                objCnx.cerrarCnx();
+                objCnx = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
+
         #endregion
 
     }

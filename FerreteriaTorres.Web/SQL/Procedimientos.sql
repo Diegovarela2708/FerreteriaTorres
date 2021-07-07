@@ -126,3 +126,17 @@ FechaCreado=@FechaCreado
  Return
  -- EXEC EditarEquipo '222','Prueba11234546 ', 1 ,1500 , 120, 10 , 10,8,1,prueba,' Diego ','02-07-2021 10:15';
  END
+
+ go
+
+ CREATE PROCEDURE BuscarEquipoCodigo
+@strIdEquipo VARCHAR(20)
+AS
+ BEGIN
+ select  strIdEquipo as Id, strDescripcion as Descripcion,intIdTipoEquipo as "Tipo Equipo", fltVrUnit as "Vr Unit", fltVrPrestamo as "Vr Prestamo",
+intImpuesto as Iva,intCantExistencia as Stock,intIdMarca as Marca, Activo as Estado, strCaracteristicas as Caracteristicas, strCreadoPor as "Creado por",
+ FechaCreado as "Fecha Creado"
+from Equipos 
+ WHERE strIdEquipo = @strIdEquipo
+ -- EXEC BuscarEquipoCodigo '11';
+ END

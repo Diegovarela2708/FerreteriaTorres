@@ -211,6 +211,32 @@ namespace FerreteriaTorres.Web
             this.rblMarca.SelectedIndex = 0;
         }
 
+        private void Buscar()
+        {
+            clsEquipos ObjclsE = new clsEquipos(strApp);
+            if (!ObjclsE.Buscar(strIdEquipo))
+            {
+                Limpiar();
+                Mensaje(ObjclsE.Error);
+                ObjclsE = null;
+                return;
+            }
+            this.txtIdEquipo.Text = ObjclsE.strIdEquipo;
+            this.txtDescripcion.Text = ObjclsE.strDescripcion;
+            this.rblTipoEquipo.SelectedValue = ObjclsE.intIdTipoEquipo.ToString();
+            this.chkActivo.Checked = ObjclsE.Activo;
+            this.txtVrUnitario.Text = ObjclsE.fltVrUnit.ToString();
+            this.txtVrPrestamo.Text = ObjclsE.fltVrPrestamo.ToString();
+            this.txtImpuesto.Text = ObjclsE.intImpuesto.ToString();
+            this.txtCantExistencia.Text = ObjclsE.intCantExistencia.ToString();
+            this.rblMarca.SelectedValue = ObjclsE.intIdMarca.ToString();
+            this.txtCaracteristicas.Text = ObjclsE.strCaracteristicas;
+            this.txtCreadoPor.Text = ObjclsE.strCreadoPor;
+            this.txtFechaCreado.Text = ObjclsE.FechaCreado.ToString();
+            Habilitar();
+            txtIdEquipo.Enabled = false;
+            ObjclsE = null;
+        }
 
         #endregion
         protected void Page_Load(object sender, EventArgs e)
@@ -254,13 +280,15 @@ namespace FerreteriaTorres.Web
                     break;
                 case "opcmodificar":
                     intOpcion = 2;
-                    Habilitar();
+                    Deshabilitar();
+                    txtIdEquipo.Enabled = true;
                     mnuOpciones.FindItem("opcConsultar").Enabled = false;
                     mnuOpciones.FindItem("opcEliminar").Enabled = false;
                     mnuOpciones.FindItem("opcModificar").Enabled = false;
                     mnuOpciones.FindItem("opcGrabar").Enabled = true;
                     mnuOpciones.FindItem("opcAgregar").Enabled = false;
                     mnuOpciones.FindItem("opcCancelar").Enabled = true;
+                    txtIdEquipo.Focus();
                     break;
                 case "opceliminar":
                     break;
@@ -270,6 +298,12 @@ namespace FerreteriaTorres.Web
                     Grabar();
                     Limpiar();
                     Deshabilitar();
+                    mnuOpciones.FindItem("opcConsultar").Enabled = true;
+                    mnuOpciones.FindItem("opcEliminar").Enabled = true;
+                    mnuOpciones.FindItem("opcModificar").Enabled = true;
+                    mnuOpciones.FindItem("opcGrabar").Enabled = true;
+                    mnuOpciones.FindItem("opcAgregar").Enabled = true;
+                    mnuOpciones.FindItem("opcCancelar").Enabled = false;
                     break;
 
                 case "opccancelar":
@@ -282,6 +316,23 @@ namespace FerreteriaTorres.Web
                     mnuOpciones.FindItem("opcCancelar").Enabled = false;
                     break;
             }
+        }
+
+        protected void btnBuscar_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            try
+            {
+                Mensaje(string.Empty);
+                strIdEquipo = this.txtIdEquipo.Text.Trim();
+                if (string.IsNullOrEmpty(strIdEquipo))
+                {
+                    Mensaje("Número de documento no válido");
+                    return;
+                }
+                Buscar();
+            }
+            catch (Exception ex)
+            { Mensaje(ex.Message); }
         }
     }
 }
