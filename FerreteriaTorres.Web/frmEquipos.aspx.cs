@@ -38,7 +38,7 @@ namespace FerreteriaTorres.Web
             this.txtCaracteristicas.Enabled = false;
 
             this.txtCreadoPor.Visible = false;
-            this.txtFechaCreado.Visible = false;
+            this.txtFechaCreado.Visible = false ;
             this.lblCreadoPor.Visible = false;
             lblFechaCreado.Visible = false;
 
@@ -60,7 +60,7 @@ namespace FerreteriaTorres.Web
             this.txtCaracteristicas.Enabled = true;
 
             this.txtCreadoPor.Visible = false;
-            this.txtFechaCreado.Visible = false;
+            this.txtFechaCreado.Visible = false ;
             this.lblCreadoPor.Visible = false;
             lblFechaCreado.Visible = false;
 
@@ -202,7 +202,7 @@ namespace FerreteriaTorres.Web
             this.txtCaracteristicas.Text = string.Empty;
 
             this.txtCreadoPor.Visible = false;
-            this.txtFechaCreado.Visible = false;
+            this.txtFechaCreado.Visible = false ;
             this.lblCreadoPor.Visible = false;
             lblFechaCreado.Visible = false;
 
@@ -329,6 +329,7 @@ namespace FerreteriaTorres.Web
                 case "opceliminar":
                     try
                     {
+
                         Mensaje(string.Empty);
                         strIdEquipo = this.txtIdEquipo.Text.Trim();
                         if (string.IsNullOrEmpty(strIdEquipo))

@@ -265,6 +265,50 @@ namespace FerreteriaTorres.Web.Clases
 
 
         }
+
+
+        public bool BuscarAct(string IdEquipo)
+        {
+            try
+            {
+                strSQL = "EXEC BuscarEquipoCodigoAct '" + IdEquipo + "';";
+                clsConexionBD objCnx = new clsConexionBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                myReader = objCnx.dataReader_Lleno;
+                if (!myReader.HasRows)
+                {
+                    Error = "No existe registro con Nro. de documento: " + IdEquipo;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+
+
+
+                myReader.Read();
+                strDescripcion = myReader.GetString(0);
+                fltVrUnit = Convert.ToSingle(myReader.GetDecimal(1));
+                intImpuesto = myReader.GetInt32(2);
+                intCantExistencia = myReader.GetInt32(3);
+
+                myReader.Close();
+                objCnx.cerrarCnx();
+                objCnx = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
         #endregion
 
     }

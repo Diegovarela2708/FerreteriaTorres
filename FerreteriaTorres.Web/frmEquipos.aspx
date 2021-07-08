@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/frmPrincipal.Master" AutoEventWireup="true" CodeBehind="frmEquipos.aspx.cs" Inherits="FerreteriaTorres.Web.Formulario_web15" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
-   
+
     <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
-       <tr>
+        <tr>
             <td class="auto-style5"><strong>Equipo</strong></td>
         </tr>
         <tr>
@@ -126,13 +126,13 @@
                 <asp:GridView ID="grvDatos" runat="server" Font-Bold="True" Width="100%" OnRowCommand="grvDatos_RowCommand">
                     <Columns>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="~/Imagenes/Buscar.png" ShowSelectButton="True">
-                        <ItemStyle Height="23px" HorizontalAlign="Center" Width="33px" />
+                            <ItemStyle Height="23px" HorizontalAlign="Center" Width="33px" />
                         </asp:CommandField>
                     </Columns>
                     <HeaderStyle ForeColor="Red" />
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>
-             </td>
+            </td>
         </tr>
         <tr>
             <td class="auto-style15"></td>
@@ -147,9 +147,9 @@
                 <img alt="" class="auto-style13" src="Imagenes/Loguito.JPG" /></td>
         </tr>
     </table>
-   
+
 </asp:Content>
-<asp:Content ID="Content5" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="head">
     <style type="text/css">
         .auto-style5 {
             text-align: center;
@@ -157,44 +157,54 @@
             font-size: x-large;
             color: #CC0000;
         }
+
         .auto-style6 {
             width: 100%;
             border: 3px solid #000000;
         }
+
         .auto-style7 {
             text-align: right;
         }
+
         .auto-style8 {
             text-align: left;
         }
+
         .auto-style9 {
             text-align: right;
             width: 40%;
             height: 31px;
         }
+
         .auto-style10 {
             text-align: left;
             width: 40%;
             height: 31px;
         }
+
         .auto-style11 {
             text-align: right;
             width: 40%;
             height: 34px;
         }
+
         .auto-style12 {
             text-align: left;
             width: 40%;
             height: 34px;
         }
+
         .auto-style13 {
             width: 151px;
             height: 60px;
             float: right;
         }
+
         .auto-style15 {
             height: 26px;
         }
+
         .auto-style16 {
             height: 26px;
             text-align: center;
