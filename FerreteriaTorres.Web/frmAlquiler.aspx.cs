@@ -12,7 +12,7 @@ namespace FerreteriaTorres.Web
         private List<clsAlquilerDetalle> MisDetalleAlquiler;
 
         private static string strApp;
-        private static int intOpcion;
+
 
         //Alquiler
         public int intIdAlquiler;
@@ -27,11 +27,11 @@ namespace FerreteriaTorres.Web
         public float fltVrUnit;
         public float fltPorcentajeDes;
         public float fltVrDescuento;
-        public string fltVrIva;
-        public string FechaEntrega;
-        public string FechaDevolucion;
+        public float fltVrIva;
+        public DateTime FechaEntrega;
+        public DateTime FechaDevolucion;
         //Equipo
-        public int intImpuesto;
+        public float intImpuesto;
         public string Descripcion;
         public float VrUnitario;
         public int Existencia;
@@ -95,48 +95,48 @@ namespace FerreteriaTorres.Web
             }
         }
 
-        public void Grabar()
-        {
-            try
-            {
-                //strNroDocumento = txtNroDocumento.Text.Trim();
-                //FechaHoy = System.DateTime.UtcNow.ToLocalTime();
-                //strDireCliente = txtDireCliente.Text.Trim();
-                //strIdAlquiler = txtIdAlquiler.Text.Trim();
-                //strIdEquipo = txtIdEquipo.Text.Trim();
-                //strDescripcion = txtDescripcion.Text.Trim();
-                //intCantidad = Convert.ToInt32(txtCantidad.Text.Trim());
-                //fltVrUnitario = Convert.ToSingle(txtValorUnitario.Text.Trim());
-                //intCantAlquilada = Convert.ToInt32(txtCantidadAlquilada.Text.Trim());
-                //fltPorcenDescuento = Convert.ToSingle(txtPorcentajeDescuento.Text.Trim());
-                //FechaEntrega = System.DateTime.UtcNow.ToLocalTime();
-                //FechaDevolucion = System.DateTime.UtcNow.ToLocalTime();
+        //public void Grabar()
+        //{
+        //    try
+        //    {
+        //        //strNroDocumento = txtNroDocumento.Text.Trim();
+        //        //FechaHoy = System.DateTime.UtcNow.ToLocalTime();
+        //        //strDireCliente = txtDireCliente.Text.Trim();
+        //        //strIdAlquiler = txtIdAlquiler.Text.Trim();
+        //        //strIdEquipo = txtIdEquipo.Text.Trim();
+        //        //strDescripcion = txtDescripcion.Text.Trim();
+        //        //intCantidad = Convert.ToInt32(txtCantidad.Text.Trim());
+        //        //fltVrUnitario = Convert.ToSingle(txtValorUnitario.Text.Trim());
+        //        //intCantAlquilada = Convert.ToInt32(txtCantidadAlquilada.Text.Trim());
+        //        //fltPorcenDescuento = Convert.ToSingle(txtPorcentajeDescuento.Text.Trim());
+        //        //FechaEntrega = System.DateTime.UtcNow.ToLocalTime();
+        //        //FechaDevolucion = System.DateTime.UtcNow.ToLocalTime();
 
-                //clsAlquiler ObjclsAl = new clsAlquiler(strApp, strNroDocumento, FechaHoy,strDireCliente,strIdAlquiler,strIdEquipo,strDescripcion,intCantidad,
-                //                                       fltVrUnitario, intCantAlquilada,fltPorcenDescuento,FechaEntrega,FechaDevolucion);
+        //        //clsAlquiler ObjclsAl = new clsAlquiler(strApp, strNroDocumento, FechaHoy,strDireCliente,strIdAlquiler,strIdEquipo,strDescripcion,intCantidad,
+        //        //                                       fltVrUnitario, intCantAlquilada,fltPorcenDescuento,FechaEntrega,FechaDevolucion);
 
-                //if(intOpcion == 1)
-                //{
-                //    if(!ObjclsAl.grabarMaestro())
-                //    {
-                //        Mensaje(ObjclsAl.Error);
-                //        ObjclsAl = null;
-                //        return;
-                //    }
-                //}
+        //        //if(intOpcion == 1)
+        //        //{
+        //        //    if(!ObjclsAl.grabarMaestro())
+        //        //    {
+        //        //        Mensaje(ObjclsAl.Error);
+        //        //        ObjclsAl = null;
+        //        //        return;
+        //        //    }
+        //        //}
 
-                /* Diego en esta parte sigue otra cosa que el man tiene en el formulario de el
-                 pero no se como continuarlo, quedó faltando el page load y en los cls donde van
-                las sentencias sql no las pude colocar debido a que no tengo sql y no puedo probar si las
-                cosas van quedando bien*/
+        //        /* Diego en esta parte sigue otra cosa que el man tiene en el formulario de el
+        //         pero no se como continuarlo, quedó faltando el page load y en los cls donde van
+        //        las sentencias sql no las pude colocar debido a que no tengo sql y no puedo probar si las
+        //        cosas van quedando bien*/
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                Mensaje(ex.Message);
-            }
-        }
+        //        Mensaje(ex.Message);
+        //    }
+        //}
 
         private void Limpiar()
         {
@@ -206,92 +206,88 @@ namespace FerreteriaTorres.Web
             txtVrUnitario.Text = VrUnitario.ToString();
             txtExistencia.Text = Existencia.ToString();
 
-            Session["txtDescripcion"] = ObjclsE.strDescripcion;
-            Session["txtVrUnitario"] = ObjclsE.fltVrUnit.ToString();
-            Session["intImpuesto"] = ObjclsE.intImpuesto;
-            Session["txtExistencia"] = ObjclsE.intCantExistencia.ToString();
             Session["ObjclsE"] = ObjclsE;
 
             ObjclsE = null;
         }
 
-        private void ValidarDetalle()
+        private bool ValidarDetalle()
         {
             if (txtCantidadAlquilada.Text == string.Empty)
             {
                 Mensaje("Debe de ingresar la cantidad");
                 txtCantidadAlquilada.Focus();
-                return;
+                return false;
             }
             long Cantidad;
             if (!long.TryParse(txtCantidadAlquilada.Text, out Cantidad))
             {
                 Mensaje("Debe de ingresar un numero entero");
                 txtCantidadAlquilada.Focus();
-                return;
+                return false;
             }
             if (Cantidad < 1)
             {
                 Mensaje("La cantidad debe de ser mayor a 0");
                 txtCantidadAlquilada.Focus();
-                return;
+                return false;
             }
             if (Cantidad > Convert.ToInt32(txtCantidadAlquilada.Text))
             {
                 Mensaje("La cantidad es mayor a la del inventario");
                 txtCantidadAlquilada.Focus();
-                return;
+                return false;
             }
             if (txtPorcentajeDescuento.Text == string.Empty)
             {
-                
+
                 if (!float.TryParse(txtPorcentajeDescuento.Text, out fltPorcentajeDes))
                 {
                     Mensaje("Debe de ingresar un numero entero");
                     txtPorcentajeDescuento.Focus();
-                    return;
+                    return false;
                 }
                 if (fltPorcentajeDes < 0 || fltPorcentajeDes > 100)
                 {
                     Mensaje("Verifique el Descuento");
                     txtPorcentajeDescuento.Focus();
-                    return;
+                    return false;
                 }
 
             }
-            fltPorcentajeDes /= 100;
+            fltPorcentajeDes /= 100f;
 
             if (txtFechaEntrega.Text == string.Empty)
             {
                 Mensaje("seleccione un fecha de entrega");
                 txtFechaEntrega.Focus();
-                return;
+                return false;
             }
             if (txtFechaDevolucion.Text == string.Empty)
             {
                 Mensaje("seleccione un fecha de entrega");
                 txtFechaDevolucion.Focus();
-                return;
+                return false;
             }
 
-            if (Convert.ToDateTime( txtFechaEntrega.Text) > Convert.ToDateTime(txtFechaDevolucion.Text))
+            if (Convert.ToDateTime(txtFechaEntrega.Text) > Convert.ToDateTime(txtFechaDevolucion.Text))
             {
                 Mensaje("La fecha de entrega no puede ser mayor a la de devolución.");
                 txtFechaEntrega.Focus();
-                return;
+                return false;
             }
-            if (Convert.ToDateTime(txtFechaEntrega.Text) < DateTime.UtcNow || Convert.ToDateTime(txtFechaDevolucion.Text) < DateTime.UtcNow)
+            if (Convert.ToDateTime(txtFechaEntrega.Text) >= DateTime.UtcNow)
             {
-                Mensaje("Verifique las fechas");
+                Mensaje("Las fecha deben de ser a la fecha de hoy");
                 txtFechaEntrega.Focus();
-                return;
+                return false;
             }
 
-
+            return true;
         }
         private void ActualizarTotales()
         {
-            float fltTotalBruto=0,fltTotalIva=0,fltTotalDescuento=0,fltTotalNeto=0;
+            float fltTotalBruto = 0, fltTotalIva = 0, fltTotalDescuento = 0, fltTotalNeto = 0;
             foreach (clsAlquilerDetalle MiDetalle in MisDetalleAlquiler)
             {
                 fltTotalBruto += MiDetalle.fltVrBruto;
@@ -305,6 +301,76 @@ namespace FerreteriaTorres.Web
             lblfltTotalNeto.Text = string.Format("{0:C2}", fltTotalNeto);
         }
 
+        private void Grabar()
+        {
+            try
+            {
+                Fecha = DateTime.Now.ToUniversalTime();
+                strNroDocumento = txtNroDocumento.Text.Trim();
+                strDireccion = ddlDirecciones.SelectedValue;
+                strCreadoPor = "Pendiente";
+
+                clsAlquiler ObjclsA = new clsAlquiler(strApp, Fecha, strNroDocumento, strDireccion, strCreadoPor);
+
+                if (!ObjclsA.grabarMaestro())
+                {
+                    Mensaje(ObjclsA.Error);
+                    ObjclsA = null;
+                    return;
+                }
+
+
+                intIdAlquiler = ObjclsA.intIdAlquiler;
+                //ObjclsA = null;
+                foreach (clsAlquilerDetalle MiDetalle in MisDetalleAlquiler)
+                {
+
+                    strIdEquipo = MiDetalle.strIdEquipo;
+                    intCantidad = MiDetalle.intCantidad;
+                    fltVrUnit = MiDetalle.fltVrUnit;
+                    fltPorcentajeDes = MiDetalle.fltPorcentajeDes;
+                    fltVrDescuento = MiDetalle.fltVrDescuento;
+                    fltVrIva = MiDetalle.fltVrIva;
+                    FechaEntrega = MiDetalle.FechaEntrega;
+                    FechaDevolucion = MiDetalle.FechaDevolucion;
+
+                    clsDetalleArquiler Objclsad = new clsDetalleArquiler(strApp, intIdAlquiler, strIdEquipo, intCantidad,
+                        fltVrUnit, fltPorcentajeDes, fltVrDescuento, fltVrIva, FechaEntrega, FechaDevolucion);
+
+                    if (!Objclsad.grabarMaestro())
+                    {
+                        Mensaje(ObjclsA.Error);
+                        Objclsad = null;
+                        return;
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Mensaje(ex.Message);
+            }
+
+        }
+
+        private bool ValidarEncabezado()
+        {
+            if (txtNroDocumento.Text.Trim() == string.Empty)
+            {
+                Mensaje("Debe de ingresar numero de documento.");
+                txtNroDocumento.Focus();
+                return false;
+            }
+            if (MisDetalleAlquiler.Count == 0)
+            {
+                Mensaje("Debe de ingresar detalle.");
+                txtIdEquipo.Focus();
+                return false;
+            }
+            return true;
+        }
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -319,6 +385,9 @@ namespace FerreteriaTorres.Web
                 this.lblIdAlquiler.Visible = false;
                 this.txtNroDocumento.ReadOnly = false;
                 this.txtNroDocumento.Focus();
+                txtDescripcion.Enabled = false;
+                txtExistencia.Enabled = false;
+                txtVrUnitario.Enabled = false;
             }
             MisDetalleAlquiler = (List<clsAlquilerDetalle>)Session["MisDetalleAlquiler"];
             if (MisDetalleAlquiler == null)
@@ -332,39 +401,84 @@ namespace FerreteriaTorres.Web
 
         }
 
-        
-
         protected void mnuOpciones_MenuItemClick(object sender, MenuEventArgs e)
         {
             Mensaje(string.Empty);
             switch (this.mnuOpciones.SelectedValue.ToLower())
             {
                 case "opcagregar":
-                    ValidarDetalle();
+                    try
+                    {
+                        if (!ValidarDetalle()) return;
 
-                    clsEquipos ObjclsE = (clsEquipos)Session["ObjclsE"];
 
-                    clsAlquilerDetalle Midetalle = new clsAlquilerDetalle();
 
-                    Midetalle.strIdEquipo = txtIdEquipo.Text;
-                    Midetalle.strDescripcion = txtDescripcion.Text;
-                    Midetalle.intCantidad = Convert.ToInt32(txtCantidadAlquilada.Text);
-                    Midetalle.intImpuesto = ObjclsE.intImpuesto;
-                    Midetalle.fltVrUnit = ObjclsE.fltVrUnit;
-                    Midetalle.fltPorcentajeDes = Convert.ToInt32(txtPorcentajeDescuento.Text);
-                    Midetalle.FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
-                    Midetalle.FechaDevolucion = Convert.ToDateTime(txtFechaDevolucion.Text);
 
-                    MisDetalleAlquiler.Add(Midetalle);
+                        clsEquipos ObjclsE = (clsEquipos)Session["ObjclsE"];
+                        clsAlquilerDetalle Midetalle = new clsAlquilerDetalle();
+
+                        Midetalle.strIdEquipo = txtIdEquipo.Text;
+                        Midetalle.strDescripcion = txtDescripcion.Text;
+                        Midetalle.intCantidad = Convert.ToInt32(txtCantidadAlquilada.Text);
+                        Midetalle.intImpuesto = ObjclsE.intImpuesto / 100f;
+                        Midetalle.fltVrUnit = ObjclsE.fltVrUnit;
+                        Midetalle.fltPorcentajeDes = Convert.ToSingle(txtPorcentajeDescuento.Text) / 100f;
+                        Midetalle.FechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
+                        Midetalle.FechaDevolucion = Convert.ToDateTime(txtFechaDevolucion.Text);
+
+                        MisDetalleAlquiler.Add(Midetalle);
+                        Session["MisDetalleAlquiler"] = MisDetalleAlquiler;
+                        ActualizarTotales();
+                        grvDatos.DataSource = MisDetalleAlquiler;
+                        grvDatos.DataBind();
+                        LimpiarDetalle();
+                        Mensaje("Producto Agregado");
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Mensaje(ex.Message);
+                    }
+
+                    break;
+
+                case "opcgrabar":
+                    try
+                    {
+                        if (!ValidarEncabezado()) return;
+
+                        Grabar();
+
+                        MisDetalleAlquiler.Clear();
+                        Session["MisDetalleAlquiler"] = MisDetalleAlquiler;
+                        ActualizarTotales();
+                        grvDatos.DataBind();
+                        grvHistoria.DataBind();
+                        ddlDirecciones.Items.Clear();
+                        txtNroDocumento.Focus();
+                        Mensaje(string.Format("El alquiler:{0},fue grabado de forma exitosa", intIdAlquiler));
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Mensaje(ex.Message);
+                    }
+
+                    break;
+
+                case "opccancelar":
+                    MisDetalleAlquiler.Clear();
                     Session["MisDetalleAlquiler"] = MisDetalleAlquiler;
                     ActualizarTotales();
-                    grvDatos.DataSource = MisDetalleAlquiler;
                     grvDatos.DataBind();
-                    LimpiarDetalle();
-                    Mensaje("Producto Agregado");
+                    grvHistoria.DataBind();
+                    ddlDirecciones.Items.Clear();
+                    txtNroDocumento.Focus();
                     break;
             }
         }
+
+
 
         protected void btnBuscarCliente_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
@@ -399,11 +513,7 @@ namespace FerreteriaTorres.Web
                     return;
                 }
                 Buscar();
-                if (intOpcion != 0)
-                {
-                    Habilitar();
-                    txtIdEquipo.Enabled = false;
-                }
+
             }
             catch (Exception ex)
             { Mensaje(ex.Message); }

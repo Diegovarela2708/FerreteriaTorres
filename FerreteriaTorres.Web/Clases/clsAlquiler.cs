@@ -14,6 +14,8 @@ namespace FerreteriaTorres.Web.Clases
         private SqlDataReader myReader;
 
         public string Error { get; private set; }
+
+        public int intIdAlquiler { get; set; }
         public DateTime Fecha { get; set; }
         public string strNroDocumento { get; set; }
         public string strDireccion { get; set; }
@@ -35,10 +37,12 @@ namespace FerreteriaTorres.Web.Clases
 
         }
 
-        public clsAlquiler(string error, DateTime fecha,
+        public clsAlquiler(string Aplicacion, DateTime fecha,
             string strNroDocumento, string strDireccion,
-            string strCreadoPor) : this(error)
+            string strCreadoPor)
         {
+            strApp = Aplicacion;
+            Error = string.Empty;
             Fecha = fecha;
             this.strNroDocumento = strNroDocumento;
             this.strDireccion = strDireccion;
@@ -67,7 +71,7 @@ namespace FerreteriaTorres.Web.Clases
                     ObjCnx = null;
                     return false;
                 }
-                strNroDocumento = ObjCnx.vrUnico.ToString();
+                intIdAlquiler = Convert.ToInt32( ObjCnx.vrUnico.ToString());
                 ObjCnx.cerrarCnx();
                 ObjCnx = null;
                 return true;
@@ -110,7 +114,7 @@ namespace FerreteriaTorres.Web.Clases
         {
             if (!Validar())
                 return false;
-            strSQL = "Falta la sentencia SQL '" + Fecha + "', '" 
+            strSQL = "EXEC GrabarArquiler '" + Fecha + "', '" 
                 + strNroDocumento + "', '" + strDireccion + "', '" + strCreadoPor + "';";
             return Grabar();
         }

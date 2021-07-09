@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:GridView ID="grvHistoria" runat="server" Width="100%" Font-Bold="True" ForeColor="Red" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px">
+                <asp:GridView ID="grvHistoria" runat="server" Width="100%" Font-Bold="True" ForeColor="Red" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" EmptyDataText="&lt;h2&gt;No tiene historial de alquiler&lt;/h2&gt;">
                     <RowStyle HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
@@ -51,7 +51,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style8" style="width: 40%"><strong>Dirección Cliente:</strong></td>
+                        <td class="auto-style8" style="width: 40%" aria-orientation="horizontal"><strong aria-orientation="horizontal">Dirección Cliente:</strong></td>
                         <td class="auto-style12" style="width: 40%">&nbsp;<asp:DropDownList ID="ddlDirecciones" runat="server" Width="213px">
                         </asp:DropDownList>
                         </td>
@@ -117,10 +117,8 @@
                     <asp:Menu ID="mnuOpciones" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Orientation="Horizontal" RenderingMode="Table" Width="100%" OnMenuItemClick="mnuOpciones_MenuItemClick">
                         <Items>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
-                            <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
-                            <asp:MenuItem Text="Eliminar" Value="opcEliminar"></asp:MenuItem>
-                            <asp:MenuItem Text="Consultar" Value="opcConsultar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
+                            <asp:MenuItem Text="Cancelar" Value="opcCancelar"></asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
                         <StaticMenuItemStyle Font-Bold="True" ForeColor="Red" HorizontalPadding="60px" />
@@ -143,7 +141,8 @@
                             <asp:BoundField DataField="fltVrUnit" DataFormatString="{0:C2}" HeaderText="Vr Unitario">
                                 <ItemStyle HorizontalAlign="Right" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="fltPorcentajeDes" DataFormatString="{0:P2}" HeaderText="Descuento % " />
+                            <asp:BoundField DataField="fltPorcentajeDes" HeaderText="Descuento % " DataFormatString="{0:P2}" />
+                            <asp:BoundField DataField="intImpuesto" HeaderText="Iva %" DataFormatString="{0:P2}" />
                             <asp:BoundField DataField="fltVrDescuento" DataFormatString="{0:C2}" HeaderText="Vr Descuento " />
                             <asp:BoundField DataField="fltVrIva" DataFormatString="{0:C2}" HeaderText="Vr Iva " />
                             <asp:BoundField DataField="FechaEntrega" DataFormatString="{0:y-MM-dd HH:mm}" HeaderText="Fecha Entrega " />
@@ -162,11 +161,12 @@
                             <td class="auto-style21">
                                 <h2 class="auto-style12">Totales:</h2>
                             </td>
-                            <td>
+                            <td class="auto-style22">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="lblfltTotalBruto" runat="server" Text=""></asp:Label></td>
-                            <td>
+                            <td class="auto-style23">
                                 <asp:Label ID="lblfltTotalIva" runat="server" Text=""></asp:Label></td>
-                            <td>
+                            <td class="auto-style24">
                                 <asp:Label ID="lblfltTotaDescuento" runat="server" Text=""></asp:Label></td>
                             <td class="auto-style12">
                                 <asp:Label ID="lblfltTotalNeto" runat="server" Text=""></asp:Label></td>
@@ -270,6 +270,15 @@
         }
         .auto-style21 {
             width: 462px;
+        }
+        .auto-style22 {
+            width: 159px;
+        }
+        .auto-style23 {
+            width: 143px;
+        }
+        .auto-style24 {
+            width: 166px;
         }
     </style>
 </asp:Content>

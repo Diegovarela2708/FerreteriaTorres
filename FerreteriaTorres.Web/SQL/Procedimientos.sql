@@ -234,5 +234,37 @@ AS
 intImpuesto as Iva,intCantExistencia as Stock
 from Equipos 
  WHERE strIdEquipo = @strIdEquipo
- -- EXEC BuscarEquipoCodigoAct '11';
+ -- EXEC BuscarEquipoCodigoAct '1';
+ END
+
+GO
+
+create PROCEDURE GrabarArquilerDetalle
+@intIdAlquiler int,
+@strIdEquipo varchar(20),
+@intCantidad int,
+@fltVrUnit float,
+@fltPorcentajeDes float,
+@fltVrDescuento float,
+@fltVrIva float,
+@FechaEntrega datetime,
+@FechaDevolucion datetime
+AS
+
+ BEGIN
+ BEGIN TRANSACTION tx
+ INSERT INTO AlquilerDetalle (intIdAlquiler,strIdEquipo,intCantidad,fltVrUnit,fltPorcentajeDes,
+fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion)
+ VALUES (@intIdAlquiler, @strIdEquipo, @intCantidad, @fltVrUnit,
+ @fltPorcentajeDes,@fltVrDescuento,@fltVrIva,@FechaEntrega,@FechaDevolucion);
+ IF ( @@ERROR > 0 )
+ BEGIN
+ ROLLBACK TRANSACTION tx
+ SELECT 0 AS Rpta
+ Return
+ END
+ COMMIT TRANSACTION tx
+ SELECT @@IDENTITY AS Rpta
+ Return
+  -- EXEC GrabarArquilerDetalle 1,1,5,1500,0,0,0,'3-7-2021 12:22','7-20-2021 12:22';
  END

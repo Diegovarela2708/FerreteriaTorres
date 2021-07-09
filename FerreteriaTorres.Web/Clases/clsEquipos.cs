@@ -22,7 +22,7 @@ namespace FerreteriaTorres.Web.Clases
         public int intIdTipoEquipo { get; set; }
         public float fltVrUnit { get; set; }
         public float fltVrPrestamo { get; set; }
-        public int intImpuesto { get; set; }
+        public float intImpuesto { get; set; }
         public int intCantExistencia { get; set; }
         public int intIdMarca { get; set; }
         public bool Activo { get; set; }
@@ -52,10 +52,11 @@ namespace FerreteriaTorres.Web.Clases
 
         }
 
-        public clsEquipos(string strApp, string strIdEquipo, string strDescripcion, int intIdTipoEquipo,
+        public clsEquipos(string Aplicacion, string strIdEquipo, string strDescripcion, int intIdTipoEquipo,
             float fltVrUnit, float fltVrPrestamo, int intImpuesto, int intCantExistencia, int intIdMarca, bool activo,
-            string strCaracteristicas, string strCreadoPor, DateTime fechaCreado) : this(strApp)
+            string strCaracteristicas, string strCreadoPor, DateTime fechaCreado)
         {
+            strApp = Aplicacion;
             Error = string.Empty;
             this.strIdEquipo = strIdEquipo;
             this.strDescripcion = strDescripcion;
@@ -148,7 +149,7 @@ namespace FerreteriaTorres.Web.Clases
                 return false;
             }
 
-            if (intCantExistencia < 0 || intCantExistencia > 100 || Convert.ToString(intCantExistencia) == string.Empty)
+            if (intCantExistencia < 0 ||  Convert.ToString(intCantExistencia) == string.Empty)
             {
                 Error = "Verifique La cantidad";
                 return false;

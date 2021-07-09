@@ -111,6 +111,7 @@
     <Compile Include="Clases\clsAlquiler.cs" />
     <Compile Include="Clases\clsAlquilerDetalle.cs" />
     <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\clsDetalleArquiler.cs" />
     <Compile Include="Clases\clsDireccion.cs" />
     <Compile Include="Clases\clsEquipos.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
