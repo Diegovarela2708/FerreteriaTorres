@@ -7,10 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
-<body>
+<body id="fondo">
     <form id="form1" runat="server">
         <div>
         </div>
     </form>
 </body>
+    <style>
+        #fondo 
+        {
+            background-color: firebrick;
+        }
+    </style>
 </html>
