@@ -24,13 +24,13 @@ namespace FerreteriaTorres.Web
         protected global::System.Web.UI.WebControls.TextBox txtNroDocumento;
 
         /// <summary>
-        /// Control ImageButton1.
+        /// Control btnBuscarCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.ImageButton btnBuscarCliente;
 
         /// <summary>
         /// Control txtFecha.
@@ -42,22 +42,22 @@ namespace FerreteriaTorres.Web
         protected global::System.Web.UI.WebControls.TextBox txtFecha;
 
         /// <summary>
-        /// Control grvDatos.
+        /// Control grvHistoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvDatos;
+        protected global::System.Web.UI.WebControls.GridView grvHistoria;
 
         /// <summary>
-        /// Control txtDireCliente.
+        /// Control lblIdAlquiler.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireCliente;
+        protected global::System.Web.UI.WebControls.Label lblIdAlquiler;
 
         /// <summary>
         /// Control txtIdAlquiler.
@@ -69,6 +69,15 @@ namespace FerreteriaTorres.Web
         protected global::System.Web.UI.WebControls.TextBox txtIdAlquiler;
 
         /// <summary>
+        /// Control ddlDirecciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDirecciones;
+
+        /// <summary>
         /// Control txtIdEquipo.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace FerreteriaTorres.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdEquipo;
+
+        /// <summary>
+        /// Control btnBuscarIdEquipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnBuscarIdEquipo;
 
         /// <summary>
         /// Control txtDescripcion.
@@ -87,22 +105,22 @@ namespace FerreteriaTorres.Web
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
         /// <summary>
-        /// Control txtCantidad.
+        /// Control txtExistencia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
+        protected global::System.Web.UI.WebControls.TextBox txtExistencia;
 
         /// <summary>
-        /// Control txtValorUnitario.
+        /// Control txtVrUnitario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorUnitario;
+        protected global::System.Web.UI.WebControls.TextBox txtVrUnitario;
 
         /// <summary>
         /// Control txtCantidadAlquilada.
@@ -157,6 +175,51 @@ namespace FerreteriaTorres.Web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Menu mnuOpciones;
+
+        /// <summary>
+        /// Control grvDatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvDatos;
+
+        /// <summary>
+        /// Control lblfltTotalBruto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfltTotalBruto;
+
+        /// <summary>
+        /// Control lblfltTotalIva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfltTotalIva;
+
+        /// <summary>
+        /// Control lblfltTotaDescuento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfltTotaDescuento;
+
+        /// <summary>
+        /// Control lblfltTotalNeto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblfltTotalNeto;
 
         /// <summary>
         /// Control lblMsj.

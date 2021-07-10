@@ -22,7 +22,7 @@ namespace FerreteriaTorres.Web.Clases
         public int intIdTipoEquipo { get; set; }
         public float fltVrUnit { get; set; }
         public float fltVrPrestamo { get; set; }
-        public int intImpuesto { get; set; }
+        public float intImpuesto { get; set; }
         public int intCantExistencia { get; set; }
         public int intIdMarca { get; set; }
         public bool Activo { get; set; }
@@ -52,10 +52,11 @@ namespace FerreteriaTorres.Web.Clases
 
         }
 
-        public clsEquipos(string strApp, string strIdEquipo, string strDescripcion, int intIdTipoEquipo,
+        public clsEquipos(string Aplicacion, string strIdEquipo, string strDescripcion, int intIdTipoEquipo,
             float fltVrUnit, float fltVrPrestamo, int intImpuesto, int intCantExistencia, int intIdMarca, bool activo,
-            string strCaracteristicas, string strCreadoPor, DateTime fechaCreado) : this(strApp)
+            string strCaracteristicas, string strCreadoPor, DateTime fechaCreado)
         {
+            strApp = Aplicacion;
             Error = string.Empty;
             this.strIdEquipo = strIdEquipo;
             this.strDescripcion = strDescripcion;
@@ -148,7 +149,7 @@ namespace FerreteriaTorres.Web.Clases
                 return false;
             }
 
-            if (intCantExistencia < 0 || intCantExistencia > 100 || Convert.ToString(intCantExistencia) == string.Empty)
+            if (intCantExistencia < 0 ||  Convert.ToString(intCantExistencia) == string.Empty)
             {
                 Error = "Verifique La cantidad";
                 return false;
@@ -196,6 +197,119 @@ namespace FerreteriaTorres.Web.Clases
             return Grabar();
         }
 
+        public bool Buscar(string IdEquipo)
+        {
+            try
+            {
+                strSQL = "EXEC BuscarEquipoCodigo '" + IdEquipo + "';";
+                clsConexionBD objCnx = new clsConexionBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                myReader = objCnx.dataReader_Lleno;
+                if (!myReader.HasRows)
+                {
+                    Error = "No existe registro con Nro. de documento: " + IdEquipo;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+
+               
+
+                myReader.Read();
+                strIdEquipo = myReader.GetString(0);
+                strDescripcion = myReader.GetString(1);
+                intIdTipoEquipo = myReader.GetInt32(2);
+                fltVrUnit = Convert.ToSingle( myReader.GetDecimal(3));
+                //
+                fltVrPrestamo = Convert.ToSingle(myReader.GetDecimal(4));
+                intImpuesto = myReader.GetInt32(5);
+                intCantExistencia = myReader.GetInt32(6);
+                intIdMarca = myReader.GetInt32(7);
+                //FechaCreado
+                Activo = myReader.GetBoolean(8);
+                strCaracteristicas = myReader.GetString(9);
+                strCreadoPor = myReader.GetString(10);
+                FechaCreado = myReader.GetDateTime(11);
+                myReader.Close();
+                objCnx.cerrarCnx();
+                objCnx = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
+
+        public bool Eliminar(string IdEquipo)
+        {
+
+            try
+            {
+                strSQL = "EXEC EliminarEquipo '" + IdEquipo + "';";
+                Grabar();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+
+
+        }
+
+
+        public bool BuscarAct(string IdEquipo)
+        {
+            try
+            {
+                strSQL = "EXEC BuscarEquipoCodigoAct '" + IdEquipo + "';";
+                clsConexionBD objCnx = new clsConexionBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                myReader = objCnx.dataReader_Lleno;
+                if (!myReader.HasRows)
+                {
+                    Error = "No existe registro con Nro. de documento: " + IdEquipo;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+
+
+
+                myReader.Read();
+                strDescripcion = myReader.GetString(0);
+                fltVrUnit = Convert.ToSingle(myReader.GetDecimal(1));
+                intImpuesto = myReader.GetInt32(2);
+                intCantExistencia = myReader.GetInt32(3);
+
+                myReader.Close();
+                objCnx.cerrarCnx();
+                objCnx = null;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
         #endregion
 
     }

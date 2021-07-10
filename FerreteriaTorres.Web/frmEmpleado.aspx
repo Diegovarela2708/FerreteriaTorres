@@ -138,7 +138,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-             <td class="auto-style9">
+            <td class="auto-style9">
                 <asp:Label ID="lblMsj" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
@@ -148,7 +148,7 @@
         </tr>
     </table>
 </asp:Content>
-<asp:Content ID="Content5" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="head">
     <style type="text/css">
         .auto-style4 {
             text-align: center;
@@ -156,29 +156,35 @@
             font-size: x-large;
             color: #CC0000;
         }
+
         .auto-style5 {
             text-align: right;
         }
+
         .auto-style6 {
             text-align: left;
         }
+
         .auto-style7 {
             text-align: right;
             width: 40%;
             height: 31px;
         }
+
         .auto-style8 {
             width: 40%;
             height: 31px;
         }
-    .auto-style9 {
-        text-align: center;
-    }
+
+        .auto-style9 {
+            text-align: center;
+        }
+
         .auto-style10 {
             width: 150px;
             height: 61px;
             float: right;
         }
-        </style>
+    </style>
 </asp:Content>
 

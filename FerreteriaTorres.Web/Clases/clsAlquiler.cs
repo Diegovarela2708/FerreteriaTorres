@@ -13,19 +13,14 @@ namespace FerreteriaTorres.Web.Clases
 
         private SqlDataReader myReader;
 
-        public string Error { get; set; }
+        public string Error { get; private set; }
+
+        public int intIdAlquiler { get; set; }
+        public DateTime Fecha { get; set; }
         public string strNroDocumento { get; set; }
-        public DateTime FechaHoy { get; set; }
-        public string strDireCliente { get; set; }
-        public string strIdAlquiler { get; set; }
-        public string strIdEquipo { get; set; }
-        public string strDescripcion { get; set; }
-        public int intCantidad { get; set; }
-        public float fltVrUnitario { get; set; }
-        public int intCantAlquilada { get; set; }
-        public float fltPorcenDescuento { get; set; }
-        public DateTime FechaEntrega { get; set; }
-        public DateTime FechaDevolucion { get; set; }
+        public string strDireccion { get; set; }
+        public string strCreadoPor { get; set; }
+
         #endregion
 
         #region "Constructor"
@@ -35,39 +30,26 @@ namespace FerreteriaTorres.Web.Clases
             strApp = Aplicacion;
 
             Error = string.Empty;
+            Fecha = DateTime.Now;
             strNroDocumento = string.Empty;
-            FechaHoy = DateTime.Now.Date;
-            strDireCliente = string.Empty;
-            strIdAlquiler = string.Empty;
-            strIdEquipo = string.Empty;
-            strDescripcion = string.Empty;
-            intCantidad = 0;
-            fltVrUnitario = 0;
-            intCantAlquilada = 0;
-            fltPorcenDescuento = 0;
-            FechaEntrega = DateTime.Now.Date;
-            FechaDevolucion = DateTime.Now.Date;
+            strDireccion = string.Empty;
+            strCreadoPor = string.Empty;
+
         }
 
-        public clsAlquiler (string strApp, string strNroDocumento, DateTime fechaHoy, string strDireCliente,
-                            string IdAlquiler, string strIdEquipo, string strDescripcion, int intCantidad,
-                            float fltVrUnitario, int intCantAlquilada, float fltPorcenDescuento, DateTime fechaEntrega,
-                            DateTime fechaDevolucion)
+        public clsAlquiler(string Aplicacion, DateTime fecha,
+            string strNroDocumento, string strDireccion,
+            string strCreadoPor)
         {
+            strApp = Aplicacion;
             Error = string.Empty;
+            Fecha = fecha;
             this.strNroDocumento = strNroDocumento;
-            FechaHoy = fechaHoy;
-            this.strDireCliente = strDireCliente;
-            this.strIdAlquiler = strIdAlquiler;
-            this.strIdEquipo = strIdEquipo;
-            this.strDescripcion = strDescripcion;
-            this.intCantAlquilada = intCantAlquilada;
-            this.intCantidad = intCantidad;
-            this.fltVrUnitario = fltVrUnitario;
-            this.fltPorcenDescuento = fltPorcenDescuento;
-            FechaEntrega = fechaEntrega;
-            FechaDevolucion = fechaDevolucion;            
+            this.strDireccion = strDireccion;
+            this.strCreadoPor = strCreadoPor;
         }
+
+
         #endregion
 
         #region "Metodos Privados"
@@ -89,7 +71,7 @@ namespace FerreteriaTorres.Web.Clases
                     ObjCnx = null;
                     return false;
                 }
-                strNroDocumento = ObjCnx.vrUnico.ToString();
+                intIdAlquiler = Convert.ToInt32( ObjCnx.vrUnico.ToString());
                 ObjCnx.cerrarCnx();
                 ObjCnx = null;
                 return true;
@@ -101,112 +83,39 @@ namespace FerreteriaTorres.Web.Clases
             }
         }
 
-        private bool Validar ()
+        private bool Validar()
         {
+            
             if (strNroDocumento == string.Empty)
             {
                 Error = "Numero de documento obligatorio!!";
                 return false;
             }
 
-            if (strDireCliente == string.Empty)
+            if (strDireccion == string.Empty)
             {
                 Error = "Ingrese la dirección de el cliente";
                 return false;
             }
 
-            if (strIdAlquiler == string.Empty)
+            if (strCreadoPor == string.Empty)
             {
-                Error = "Es necesario la identificación de el alquiler";
+                Error = "Usuario no logueado";
                 return false;
             }
 
-            if (strIdEquipo == string.Empty)
-            {
-                Error = "Es necesario la identificación de el Equipo";
-                return false;
-            }
-
-            if (strDescripcion == string.Empty)
-            {
-                Error = "Hace falta la descripción de el producto";
-                return false;
-            }
-
-            if (fltVrUnitario <= 0)
-            {
-                Error = "El valor de el producto debe se mayor a 0";
-                return false;
-            }
-
-            if (Convert.ToString(fltVrUnitario) == string.Empty)
-            {
-                Error = "Debe ingresar el valor de el producto";
-                return false;
-            }
-
-            if ( intCantidad < 0)
-            {
-                Error = "Verifique la cantidad";
-                return false;
-            }
-
-            if (Convert.ToString(intCantidad) == string.Empty)
-            {
-                Error = "Debe ingresar la cantidad";
-                return false;
-            }
-
-            if ( intCantAlquilada < 0)
-            {
-                Error = "Verique la cantidad";
-                return false;
-            }
-
-            if (Convert.ToString(intCantAlquilada) == string.Empty)
-            {
-                Error = "Debe ingresar la cantidad alquilada";
-                return false;
-            }
-
-            if ( fltPorcenDescuento < 0)
-            {
-                Error = "Verifique el porcentaje de descuento";
-                return false;
-            }
-
-            if (Convert.ToString(fltPorcenDescuento) == string.Empty)
-            {
-                Error = "Debe ingresar el porcentaje de descuento";
-                return false;
-            }
             return true;
         }
         #endregion
 
         #region "Metodos Publicos"
 
-        public bool llenarGrid(GridView Grid)
-        {
-            strSQL = "Falta colocar la sentencia";
-            clsGenerales ObjGen = new clsGenerales();
-            if (!ObjGen.llenarGrid(strApp, Grid, strSQL))
-            {
-                Error = ObjGen.Error;
-                ObjGen = null;
-                return false;
-            }
-            ObjGen = null;
-            return true;
-        }
-
         public bool grabarMaestro()
         {
             if (!Validar())
                 return false;
-            strSQL = "Falta la sentencia SQL '" + strNroDocumento + "', '" + FechaHoy + "', '" + strDireCliente + "', '" + strIdAlquiler + "', '" +
-            strIdEquipo + "', '" + strDescripcion + "', '" + intCantidad + "', '" + intCantAlquilada + "', '" +
-            fltVrUnitario + "', '" + fltPorcenDescuento + "', '" + FechaEntrega + "', '" + FechaDevolucion + "';";
+            strSQL = "EXEC GrabarArquiler '" + Fecha + "', '" 
+                + strNroDocumento + "', '" + strDireccion + "', '" + strCreadoPor + "';";
             return Grabar();
         }
 

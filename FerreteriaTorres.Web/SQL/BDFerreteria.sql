@@ -18,8 +18,8 @@ strIdEquipo varchar(20)  primary key,
 strDescripcion Varchar(max),
 intIdTipoEquipo int not null,
 CONSTRAINT fk_intIdTipoEquipo FOREIGN KEY (intIdTipoEquipo) REFERENCES TipoEquipos (intIdTipoEquipo),
-fltVrUnit float not null,
-fltVrPrestamo float not null,
+fltVrUnit money not null,
+fltVrPrestamo money not null,
 intImpuesto int null,
 intCantExistencia int not null,
 intIdMarca int not null,
@@ -133,12 +133,13 @@ CONSTRAINT fk_intIdAlquiler FOREIGN KEY (intIdAlquiler) REFERENCES Alquiler(intI
 strIdEquipo varchar(20) not null,
 CONSTRAINT fk_strIdEquipo FOREIGN KEY (strIdEquipo) REFERENCES Equipos(strIdEquipo),
 intCantidad int not null,
-fltVrUnit float not null,
-fltPorcentajeDes float default (0),
-fltVrDescuento float default (0),
-fltVrIva float default(0),
+fltVrUnit money not null,
+fltPorcentajeDes money default (0),
+fltVrDescuento money default (0),
+fltVrIva money default(0),
 FechaEntrega datetime not null,
 FechaDevolucion datetime not null
 )
 go
+--Alter
 

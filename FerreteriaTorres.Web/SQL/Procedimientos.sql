@@ -126,3 +126,145 @@ FechaCreado=@FechaCreado
  Return
  -- EXEC EditarEquipo '222','Prueba11234546 ', 1 ,1500 , 120, 10 , 10,8,1,prueba,' Diego ','02-07-2021 10:15';
  END
+
+ go
+
+ CREATE PROCEDURE BuscarEquipoCodigo
+@strIdEquipo VARCHAR(20)
+AS
+ BEGIN
+ select  strIdEquipo as Id, strDescripcion as Descripcion,intIdTipoEquipo as "Tipo Equipo", fltVrUnit as "Vr Unit", fltVrPrestamo as "Vr Prestamo",
+intImpuesto as Iva,intCantExistencia as Stock,intIdMarca as Marca, Activo as Estado, strCaracteristicas as Caracteristicas, strCreadoPor as "Creado por",
+ FechaCreado as "Fecha Creado"
+from Equipos 
+ WHERE strIdEquipo = @strIdEquipo
+ -- EXEC BuscarEquipoCodigo '11';
+ END
+
+ go
+
+ create PROCEDURE GrabarArquiler
+@Fecha DATETIME,
+@strNroDocumento varchar(15),
+@strDireccion varchar(20),
+@strCreadoPor varchar(20)
+AS
+ BEGIN
+ BEGIN TRANSACTION tx
+ INSERT INTO Alquiler( Fecha, strNroDocumento,
+ strDireccion, strCreadoPor)
+ VALUES (@Fecha, @strNroDocumento, @strDireccion, @strCreadoPor);
+ IF ( @@ERROR > 0 )
+ BEGIN
+ ROLLBACK TRANSACTION tx
+ SELECT 0 AS Rpta
+ Return
+ END
+ COMMIT TRANSACTION tx
+ SELECT @@IDENTITY AS Rpta
+ Return
+  -- EXEC GrabarArquiler '7-7-2021','1119217542','cALLE Prueba','DIEGO';
+ END
+
+ GO
+
+ CREATE PROCEDURE EliminarEquipo
+@strIdEquipo VARCHAR(20)
+AS
+ BEGIN
+ IF EXISTS( SELECT * FROM AlquilerDetalle
+ WHERE strIdEquipo = @strIdEquipo )
+ BEGIN
+ SELECT -1 AS Rpta
+ Return
+ END
+ ELSE
+ BEGIN
+ BEGIN TRANSACTION tx
+ delete Equipos WHERE strIdEquipo = @strIdEquipo
+ IF ( @@ERROR > 0 )
+ BEGIN
+ ROLLBACK TRANSACTION tx
+ SELECT 0 AS Rpta
+ Return
+ END
+ COMMIT TRANSACTION tx
+ SELECT @strIdEquipo AS Rpta
+ Return
+ END
+ -- EXEC EliminarEquipo '12';
+
+ END
+
+ go
+  CREATE PROCEDURE ConsultaHistoriaPorCliente
+@strNroDocumento varchar(15)
+AS
+ BEGIN
+ select a.intIdAlquiler as ID, CONVERT(varchar,a.Fecha,20) as Fecha,a.strNroDocumento AS "N° Documento",a.strDireccion AS "Direccion",
+ a.strCreadoPor as "Creado Por",COUNT(ad.intIdAlquiler) as "Cantidad Articulos"
+ from Alquiler a
+ INNER JOIN AlquilerDetalle ad ON a.intIdAlquiler = ad.intIdAlquiler
+ WHERE a.strNroDocumento = @strNroDocumento
+ Group by a.intIdAlquiler, a.Fecha,a.strNroDocumento,a.strDireccion,
+ a.strCreadoPor
+ --EXEC ComboDirecciones @strNroDocumento;
+ -- EXEC ConsultaHistoriaPorCliente '1119217542';
+ END
+
+ go
+
+ Create PROCEDURE ComboDirecciones
+ @strNroDocumento varchar(15)
+ AS
+ BEGIN
+ SELECT d.strDireccion as Clave, d.strDireccion As Dato
+ FROM Clientes c
+ Inner Join Direcciones d on c.strNroDocumento = d.strNroDocumento
+ WHERE c.strNroDocumento = @strNroDocumento
+ ORDER BY d.strDireccion
+ -- EXEC ComboDirecciones '1119217542';
+ END
+ go
+ CREATE PROCEDURE BuscarEquipoCodigoAct
+@strIdEquipo VARCHAR(20)
+AS
+ BEGIN
+ select  strDescripcion as Descripcion,  fltVrPrestamo as "Vr Prestamo",
+intImpuesto as Iva,intCantExistencia as Stock
+from Equipos 
+ WHERE strIdEquipo = @strIdEquipo
+ -- EXEC BuscarEquipoCodigoAct '1';
+ END
+
+GO
+
+create PROCEDURE GrabarArquilerDetalle
+@intIdAlquiler int,
+@strIdEquipo varchar(20),
+@intCantidad int,
+@fltVrUnit float,
+@fltPorcentajeDes float,
+@fltVrDescuento float,
+@fltVrIva float,
+@FechaEntrega datetime,
+@FechaDevolucion datetime
+AS
+
+ BEGIN
+ BEGIN TRANSACTION tx
+ INSERT INTO AlquilerDetalle (intIdAlquiler,strIdEquipo,intCantidad,fltVrUnit,fltPorcentajeDes,
+fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion)
+ VALUES (@intIdAlquiler, @strIdEquipo, @intCantidad, @fltVrUnit,
+ @fltPorcentajeDes,@fltVrDescuento,@fltVrIva,@FechaEntrega,@FechaDevolucion);
+ IF ( @@ERROR > 0 )
+ BEGIN
+ ROLLBACK TRANSACTION tx
+ SELECT 0 AS Rpta
+ Return
+ END
+ COMMIT TRANSACTION tx
+ SELECT @@IDENTITY AS Rpta
+ Return
+  -- EXEC GrabarArquilerDetalle 1,1,5,1500,0,0,0,'3-7-2021 12:22','7-20-2021 12:22';
+ END
