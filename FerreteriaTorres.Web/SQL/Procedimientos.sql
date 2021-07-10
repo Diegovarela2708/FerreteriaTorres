@@ -129,7 +129,7 @@ FechaCreado=@FechaCreado
 
  go
 
- ALTER PROCEDURE BuscarEquipoCodigo
+ CREATE PROCEDURE BuscarEquipoCodigo
 @strIdEquipo VARCHAR(20)
 AS
  BEGIN
@@ -137,7 +137,7 @@ AS
 intImpuesto as Iva,intCantExistencia as Stock,intIdMarca as Marca, Activo as Estado, strCaracteristicas as Caracteristicas, strCreadoPor as "Creado por",
  FechaCreado as "Fecha Creado"
 from Equipos 
- WHERE strIdEquipo = @strIdEquipo AND Activo = 1
+ WHERE strIdEquipo = @strIdEquipo
  -- EXEC BuscarEquipoCodigo '1';
  END
 
@@ -233,7 +233,7 @@ AS
  select  strDescripcion as Descripcion,  fltVrPrestamo as "Vr Prestamo",
 intImpuesto as Iva,intCantExistencia as Stock
 from Equipos 
- WHERE strIdEquipo = @strIdEquipo
+ WHERE strIdEquipo = @strIdEquipo  AND Activo = 1
  -- EXEC BuscarEquipoCodigoAct '1';
  END
 
