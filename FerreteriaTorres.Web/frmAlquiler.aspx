@@ -19,7 +19,7 @@
                         <td style="width: 20%">
                             <asp:TextBox ID="txtNroDocumento" runat="server" MaxLength="15"></asp:TextBox>
                         &nbsp;
-                            <asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.jpg" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Imagennn.png" Height="23px" Width="33px" />
                         </td>
                         <td class="auto-style8" style="width: 15%"><strong>Fecha:</strong></td>
                         <td style="width: 20%">

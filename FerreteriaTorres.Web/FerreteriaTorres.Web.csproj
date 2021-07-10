@@ -87,6 +87,7 @@
   <ItemGroup>
     <Content Include="Con_FerreteriaTorres.xml" />
     <Content Include="default.aspx" />
+    <Content Include="Entrada.aspx" />
     <Content Include="frmTipoDeDocumento.aspx" />
     <Content Include="frmTipoDeEquipos.aspx" />
     <Content Include="frmTelefonoCliente.aspx" />
@@ -98,10 +99,9 @@
     <Content Include="frmAlquiler.aspx" />
     <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Imagenes\black-and-white-cogs-gears-industrial-wallpaper-preview.jpg" />
-    <Content Include="Imagenes\Imagen.png" />
-    <Content Include="Imagenes\Imagenn.png" />
+    <Content Include="Imagenes\imagen11.jpg" />
     <Content Include="Imagenes\Imagennn.png" />
+    <Content Include="Imagenes\Logo.png" />
     <Content Include="Imagenes\Loguito.JPG" />
     <Content Include="SQL\BDFerreteria.sql" />
     <Content Include="SQL\Insert.sql" />
@@ -120,6 +120,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrada.aspx.cs">
+      <DependentUpon>Entrada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrada.aspx.designer.cs">
+      <DependentUpon>Entrada.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmTipoDeDocumento.aspx.cs">
       <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
