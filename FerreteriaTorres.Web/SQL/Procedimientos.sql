@@ -129,7 +129,7 @@ FechaCreado=@FechaCreado
 
  go
 
- CREATE PROCEDURE BuscarEquipoCodigo
+ ALTER PROCEDURE BuscarEquipoCodigo
 @strIdEquipo VARCHAR(20)
 AS
  BEGIN
@@ -137,8 +137,8 @@ AS
 intImpuesto as Iva,intCantExistencia as Stock,intIdMarca as Marca, Activo as Estado, strCaracteristicas as Caracteristicas, strCreadoPor as "Creado por",
  FechaCreado as "Fecha Creado"
 from Equipos 
- WHERE strIdEquipo = @strIdEquipo
- -- EXEC BuscarEquipoCodigo '11';
+ WHERE strIdEquipo = @strIdEquipo AND Activo = 1
+ -- EXEC BuscarEquipoCodigo '1';
  END
 
  go
@@ -239,7 +239,7 @@ from Equipos
 
 GO
 
-create PROCEDURE GrabarArquilerDetalle
+CREATE PROCEDURE GrabarArquilerDetalle
 @intIdAlquiler int,
 @strIdEquipo varchar(20),
 @intCantidad int,
@@ -257,6 +257,7 @@ AS
 fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion)
  VALUES (@intIdAlquiler, @strIdEquipo, @intCantidad, @fltVrUnit,
  @fltPorcentajeDes,@fltVrDescuento,@fltVrIva,@FechaEntrega,@FechaDevolucion);
+ EXEC DisminuirExistencia @intCantidad,@strIdEquipo;
  IF ( @@ERROR > 0 )
  BEGIN
  ROLLBACK TRANSACTION tx
@@ -268,3 +269,14 @@ fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion)
  Return
   -- EXEC GrabarArquilerDetalle 1,1,5,1500,0,0,0,'3-7-2021 12:22','7-20-2021 12:22';
  END
+ go
+ CREATE PROCEDURE DisminuirExistencia
+@intCantidad int,
+@strIdEquipo varchar(20)
+as
+BEGIN
+SET NOCOUNT OFF;
+UPDATE Equipos SET intCantExistencia = intCantExistencia - @intCantidad
+WHERE strIdEquipo = @strIdEquipo
+--EXEC DisminuirExistencia 10,'1';
+END

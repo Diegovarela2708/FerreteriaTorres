@@ -232,7 +232,7 @@ namespace FerreteriaTorres.Web
                 txtCantidadAlquilada.Focus();
                 return false;
             }
-            if (Cantidad > Convert.ToInt32(txtCantidadAlquilada.Text))
+            if (Cantidad > Convert.ToInt32(txtExistencia.Text))
             {
                 Mensaje("La cantidad es mayor a la del inventario");
                 txtCantidadAlquilada.Focus();
@@ -456,6 +456,7 @@ namespace FerreteriaTorres.Web
                         grvHistoria.DataBind();
                         ddlDirecciones.Items.Clear();
                         txtNroDocumento.Focus();
+                        txtNroDocumento.Text = string.Empty;
                         Mensaje(string.Format("El alquiler:{0},fue grabado de forma exitosa", intIdAlquiler));
                     }
                     catch (Exception ex)
@@ -474,6 +475,7 @@ namespace FerreteriaTorres.Web
                     grvHistoria.DataBind();
                     ddlDirecciones.Items.Clear();
                     txtNroDocumento.Focus();
+                    txtNroDocumento.Text = string.Empty;
                     break;
             }
         }
