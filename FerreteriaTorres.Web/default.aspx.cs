@@ -17,7 +17,7 @@ namespace FerreteriaTorres.Web
         protected void Timer1_Tick(object sender, EventArgs e)
         {
             Timer1.Enabled = false;
-            Response.Redirect("Entrada.aspx");
+            Response.Redirect("frmInicio.aspx");
         }
     }
 }
