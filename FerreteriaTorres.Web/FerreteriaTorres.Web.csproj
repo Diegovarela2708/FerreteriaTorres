@@ -87,6 +87,7 @@
   <ItemGroup>
     <Content Include="Con_FerreteriaTorres.xml" />
     <Content Include="default.aspx" />
+    <Content Include="Entradaa.aspx" />
     <Content Include="frmTipoDeDocumento.aspx" />
     <Content Include="frmTipoDeEquipos.aspx" />
     <Content Include="frmTelefonoCliente.aspx" />
@@ -101,6 +102,7 @@
     <Content Include="Imagenes\black-and-white-cogs-gears-industrial-wallpaper-preview.jpg" />
     <Content Include="Imagenes\Buscar.png" />
     <Content Include="Imagenes\Delete26.png" />
+    <Content Include="Imagenes\imagen11.jpg" />
     <Content Include="Imagenes\Loguito.JPG" />
     <Content Include="OtraCosa.aspx" />
     <Content Include="SQL\BDFerreteria.sql" />
@@ -114,6 +116,7 @@
     <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\clsDetalleArquiler.cs" />
     <Compile Include="Clases\clsDireccion.cs" />
+    <Compile Include="Clases\clsEntrada.cs" />
     <Compile Include="Clases\clsEquipos.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsMarcas.cs" />
@@ -124,6 +127,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entradaa.aspx.cs">
+      <DependentUpon>Entradaa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entradaa.aspx.designer.cs">
+      <DependentUpon>Entradaa.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmTipoDeDocumento.aspx.cs">
       <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
