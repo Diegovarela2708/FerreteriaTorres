@@ -49,7 +49,9 @@
                                             <Nodes>
                                                 <asp:TreeNode NavigateUrl="~/frmInicio.aspx" Text="Inicio" Value="mnuInicio"></asp:TreeNode>
                                                 <asp:TreeNode Text="Servicios" Value="mnuServicios">
-                                                    <asp:TreeNode NavigateUrl="~/frmAlquiler.aspx" Text="Alquiler*" Value="opcAlquiler"></asp:TreeNode>
+                                                    <asp:TreeNode NavigateUrl="~/frmAlquiler.aspx" Text="Alquiler*" Value="opcAlquiler">
+                                                        <asp:TreeNode NavigateUrl="~/frmConsultar.aspx" Text="Consultar" Value="opcConsultar"></asp:TreeNode>
+                                                    </asp:TreeNode>
                                                 </asp:TreeNode>
                                                 <asp:TreeNode Text="Maquinaria" Value="mnuMaquinaria">
                                                     <asp:TreeNode NavigateUrl="~/frmEquipos.aspx" Text="Equipos*" Value="opcEquipos">

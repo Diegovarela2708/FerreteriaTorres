@@ -37,7 +37,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style9"></td>
+            <td class="auto-style9">&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
             <td>
@@ -156,26 +156,40 @@
                         </Columns>
                         <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
-                    <table>
-                        <tr>
-                            <td class="auto-style21">
-                                <h2 class="auto-style12">Totales:</h2>
-                            </td>
-                            <td class="auto-style22">
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Label ID="lblfltTotalBruto" runat="server" Text=""></asp:Label></td>
-                            <td class="auto-style23">
-                                <asp:Label ID="lblfltTotalIva" runat="server" Text=""></asp:Label></td>
-                            <td class="auto-style24">
-                                <asp:Label ID="lblfltTotaDescuento" runat="server" Text=""></asp:Label></td>
-                            <td class="auto-style12">
-                                <asp:Label ID="lblfltTotalNeto" runat="server" Text=""></asp:Label></td>
-                        </tr>
-                    </table>
+                    
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td>
+                                &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                                <h2><strong>Totales:&nbsp; </strong></h2>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                                <asp:Label ID="Label1" runat="server" Text="Total Bruto:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblfltTotalBruto" runat="server" Text=""></asp:Label></td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                                <asp:Label ID="Label2" runat="server" Text="Total Iva:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblfltTotalIva" runat="server" Text=""></asp:Label></td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                                <asp:Label ID="Label3" runat="server" Text="Total Descuentos:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblfltTotaDescuento" runat="server" Text=""></asp:Label></td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                                <asp:Label ID="Label4" runat="server" Text="Total Neto:">            </asp:Label>
+                                <asp:Label ID="lblfltTotalNeto" runat="server" Text=""></asp:Label></td>
             </tr>
             <tr>
                 <td class="auto-style19">
@@ -268,19 +282,7 @@
         .auto-style20 {
             height: 31px;
         }
-        .auto-style21 {
-            width: 462px;
-        }
-        .auto-style22 {
-            width: 159px;
-        }
-        .auto-style23 {
-            width: 143px;
-        }
-        .auto-style24 {
-            width: 166px;
-        }
-    </style>
+        </style>
 </asp:Content>
 
 

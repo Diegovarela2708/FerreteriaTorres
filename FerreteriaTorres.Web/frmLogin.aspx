@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Entradaa.aspx.cs" Inherits="FerreteriaTorres.Web.Entradaa" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmLogin.aspx.cs" Inherits="FerreteriaTorres.Web.Entradaa" %>
 
 <!DOCTYPE html>
 
@@ -23,7 +23,7 @@
                     <td class="auto-style3" style="text-align: left">
                         <strong>
                         <asp:Label ID="lblUsuario" runat="server" Text="Usuario:" CssClass="auto-style5" ForeColor="Black"></asp:Label>
-                        <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server" placeholder="Nombre de Usuario" BackColor="Black" Font-Bold="True" ForeColor="Red" Width="70%"></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server" placeholder="Nombre de Usuario" BackColor="Black" Font-Bold="True" ForeColor="Red" Width="70%">dalvarezv</asp:TextBox>
                    
                         </strong>
                     </td>
@@ -35,7 +35,7 @@
                     <td class="text-start"><strong>
                         <asp:Label ID="lblContraseña" runat="server" CssClass="auto-style5" Text="Contraseña:" ForeColor="Black"></asp:Label>
                         <div class="text-center">
-                        <asp:TextBox ID="txtContraseña" CssClass="form-control" TextMode="Password" runat="server" placeholder="Contraseña" Width="70%" BackColor="Black" ForeColor="Red"></asp:TextBox>
+                        <asp:TextBox ID="txtContraseña" CssClass="form-control" TextMode="Password" runat="server" placeholder="Contraseña" Width="70%" BackColor="Black" ForeColor="Red">1234</asp:TextBox>
                         </div>
                         </strong></td>
                 </tr>

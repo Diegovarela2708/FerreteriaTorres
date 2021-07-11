@@ -13,7 +13,9 @@
             <td class="auto-style5"><strong>Medellin</strong></td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td class="auto-style7">
+                <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+            </td>
         </tr>
     </table>
 
@@ -35,6 +37,9 @@
             font-size: xx-large;
             color: #CC0000;
             font-family: "comic Sans MS";
+        }
+        .auto-style7 {
+            text-align: right;
         }
     </style>
 </asp:Content>

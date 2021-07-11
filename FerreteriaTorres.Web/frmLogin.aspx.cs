@@ -28,12 +28,12 @@ namespace FerreteriaTorres.Web
                 strUsuario = txtUsuario.Text.Trim().ToLower();
                 strContrasenia = txtContraseña.Text;
 
-                Clases.clsEntrada objEntrada = new Clases.clsEntrada(strApp, strUsuario, strContrasenia);
+                Clases.clsLogin ObjclsL = new Clases.clsLogin(strApp, strUsuario, strContrasenia);
 
-                if (!objEntrada.Login())
+                if (!ObjclsL.Login())
                 {
-                    lblError.Text = objEntrada.Error;
-                    objEntrada = null;
+                    lblError.Text = ObjclsL.Error;
+                    ObjclsL = null;
                     txtUsuario.Text = string.Empty;
                     txtContraseña.Text = string.Empty;
                     txtUsuario.Focus();
@@ -41,10 +41,10 @@ namespace FerreteriaTorres.Web
 
                 }
 
-                Session["idUsuario"] = objEntrada.idEmpleado;
-                Session["Nombre Empleado"] = objEntrada.strNombreEmpleado;
+                Session["strNroDocumento"] = ObjclsL.strNroDocumento;
+                Session["strNombreEmpleado"] = ObjclsL.strNombreEmpleado;
 
-                objEntrada = null;
+                ObjclsL = null;
                 Response.Redirect("frmInicio.aspx");
 
             }

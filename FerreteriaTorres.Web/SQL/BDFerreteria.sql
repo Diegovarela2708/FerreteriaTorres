@@ -60,7 +60,7 @@ strDireccion varchar(20) not null,
 intIdCiudad int not null,
 CONSTRAINT fk_intIdCiudad FOREIGN KEY (intIdCiudad) REFERENCES Ciudades(intIdCiudad),
 strUsuario varchar(20) unique,
-strContraseña varchar(20),
+strContrasena varchar(20),
 Activo bit not null,
 strCreadoPor Varchar(20) not null,
 FechaCreado datetime not null,
@@ -141,5 +141,14 @@ FechaEntrega datetime not null,
 FechaDevolucion datetime not null
 )
 go
---Alter
+CREATE PROCEDURE ValidarUsuario
+@strUsuario varchar (20),
+@strContrasena varchar (20)
+AS
+BEGIN
+SELECT strUsuario as Usuario, strContrasena as Clave  FROM Empleados
+WHERE strUsuario = @strUsuario and strContrasena = @strContrasena and Activo = 1
+--EXEC ValidarUsuario 'dalvarezv','1234'
+END
+
 

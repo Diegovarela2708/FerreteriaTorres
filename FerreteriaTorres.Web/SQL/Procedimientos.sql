@@ -280,3 +280,15 @@ UPDATE Equipos SET intCantExistencia = intCantExistencia - @intCantidad
 WHERE strIdEquipo = @strIdEquipo
 --EXEC DisminuirExistencia 10,'1';
 END
+
+GO
+
+CREATE  PROCEDURE ValidarUsuario
+@strUsuario varchar (20),
+@strContrasena varchar (20)
+AS
+BEGIN
+SELECT strUsuario, strContrasena,strNroDocumento,CONCAT(strApellidos,' ',strNombres) as strApellidoNombre FROM Empleados
+WHERE strUsuario = @strUsuario and strContrasena = @strContrasena and Activo = 1
+--exec ValidarUsuario 'dalvarezv', '1234';
+END

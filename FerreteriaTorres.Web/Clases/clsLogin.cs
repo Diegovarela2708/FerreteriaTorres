@@ -5,42 +5,44 @@ using System.Web.UI.WebControls;
 
 namespace FerreteriaTorres.Web.Clases
 {
-    public class clsEntrada
+    public class clsLogin
     {
         #region "Atributos/Propiedades"
         private string strApp;
+
         private string strSQL;
+
         private SqlDataReader myReader;
 
         public string Error { get; private set; }
         public string strUsuario { get; set; }
 
-        public string strContrasenia { get; set; }
+        public string strContrasena { get; set; }
 
         public string strNombreEmpleado { get; set; }
 
-        public int idEmpleado { get; set; }
+        public string strNroDocumento { get; set; }
 
         #endregion
 
         #region "Constructor"
-        public clsEntrada(string Aplicacion)
+        public clsLogin(string Aplicacion)
         {
             strApp = Aplicacion;
 
             Error = string.Empty;
             strUsuario = string.Empty;
-            strContrasenia = string.Empty;
+            strContrasena = string.Empty;
 
         }
 
-        public clsEntrada(string Aplicacion, string strUsuario, string strContrasenia)
+        public clsLogin(string Aplicacion, string strUsuario, string strContrasenia)
         {
             strApp = Aplicacion;
             Error = string.Empty;
 
             this.strUsuario = strUsuario;
-            this.strContrasenia = strContrasenia;
+            this.strContrasena = strContrasenia;
         }
         #endregion
 
@@ -55,7 +57,7 @@ namespace FerreteriaTorres.Web.Clases
                 return false;
             }
 
-            if (strContrasenia == string.Empty)
+            if (strContrasena == string.Empty)
             {
                 Error = "Contraseña obligatoria!!";
                 return false;
@@ -80,7 +82,7 @@ namespace FerreteriaTorres.Web.Clases
                 return false;
             }
             clsConexionBD ObjCnx = new clsConexionBD(strApp);
-            ObjCnx.SQL = "USP_Login" + strUsuario +"," +strContrasenia + ";";
+            ObjCnx.SQL = "ValidarUsuario '" + strUsuario +"','" + strContrasena + "';";
 
             if (!ObjCnx.Consultar(false))
             {
@@ -101,8 +103,11 @@ namespace FerreteriaTorres.Web.Clases
 
             myReader.Read();
 
-            idEmpleado = myReader.GetInt32(0);
-            strNombreEmpleado = myReader.GetString(1);
+            strUsuario = myReader.GetString(0);
+            strContrasena = myReader.GetString(1);
+            strNroDocumento = myReader.GetString(2);
+            strNombreEmpleado = myReader.GetString(3);
+
 
             myReader.Close();
             ObjCnx.cerrarCnx();

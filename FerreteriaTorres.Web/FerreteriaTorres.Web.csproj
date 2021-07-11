@@ -87,7 +87,8 @@
   <ItemGroup>
     <Content Include="Con_FerreteriaTorres.xml" />
     <Content Include="default.aspx" />
-    <Content Include="Entradaa.aspx" />
+    <Content Include="frmConsultar.aspx" />
+    <Content Include="frmLogin.aspx" />
     <Content Include="frmTipoDeDocumento.aspx" />
     <Content Include="frmTipoDeEquipos.aspx" />
     <Content Include="frmTelefonoCliente.aspx" />
@@ -116,7 +117,7 @@
     <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\clsDetalleArquiler.cs" />
     <Compile Include="Clases\clsDireccion.cs" />
-    <Compile Include="Clases\clsEntrada.cs" />
+    <Compile Include="Clases\clsLogin.cs" />
     <Compile Include="Clases\clsEquipos.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsMarcas.cs" />
@@ -128,12 +129,19 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entradaa.aspx.cs">
-      <DependentUpon>Entradaa.aspx</DependentUpon>
+    <Compile Include="frmConsultar.aspx.cs">
+      <DependentUpon>frmConsultar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Entradaa.aspx.designer.cs">
-      <DependentUpon>Entradaa.aspx</DependentUpon>
+    <Compile Include="frmConsultar.aspx.designer.cs">
+      <DependentUpon>frmConsultar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmTipoDeDocumento.aspx.cs">
       <DependentUpon>frmTipoDeDocumento.aspx</DependentUpon>
