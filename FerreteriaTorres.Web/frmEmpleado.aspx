@@ -12,7 +12,7 @@
             <td>
                 <table cellpadding="3" cellspacing="3" class="auto-style1">
                     <tr>
-                        <td class="auto-style5" style="width: 40%"><strong>Numero De Documento:</strong></td>
+                        <td class="auto-style5" style="width: 40%"><strong>Número De Documento:</strong></td>
                         <td class="auto-style6" style="width: 40%">
                             <asp:TextBox ID="txtNroDocumento" runat="server"></asp:TextBox>
                         </td>
@@ -43,7 +43,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style5" style="width: 40%"><strong>Telefono:</strong></td>
+                        <td class="auto-style5" style="width: 40%"><strong>Teléfono:</strong></td>
                         <td class="auto-style6" style="width: 40%">
                             <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
                         </td>

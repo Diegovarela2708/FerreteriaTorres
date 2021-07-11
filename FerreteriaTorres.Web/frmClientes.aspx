@@ -19,7 +19,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style6" style="width: 40%"><strong>Numero De Documento:</strong></td>
+                        <td class="auto-style6" style="width: 40%"><strong>Número De Documento:</strong></td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtNroDoc" runat="server"></asp:TextBox>
                         </td>
@@ -91,7 +91,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style6" style="width: 40%"><strong>Correo Electronico:</strong></td>
+                        <td class="auto-style6" style="width: 40%"><strong>Correo Electrónico:</strong></td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtCorreoElec" runat="server"></asp:TextBox>
                         </td>

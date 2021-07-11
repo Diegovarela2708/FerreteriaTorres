@@ -23,7 +23,7 @@
                     <td class="auto-style3" style="text-align: left">
                         <strong>
                         <asp:Label ID="lblUsuario" runat="server" Text="Usuario:" CssClass="auto-style5" ForeColor="Black"></asp:Label>
-                        <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server" placeholder="Nombre de Usuario" BackColor="Black" Font-Bold="True" ForeColor="Red" Width="70%">dalvarezv</asp:TextBox>
+                        <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server" placeholder="Nombre de Usuario" BackColor="Black" Font-Bold="True" ForeColor="Red" Width="70%"></asp:TextBox>
                    
                         </strong>
                     </td>

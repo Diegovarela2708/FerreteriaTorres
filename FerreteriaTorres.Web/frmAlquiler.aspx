@@ -12,7 +12,7 @@
             <td class="auto-style7">
                 <table align="center" cellpadding="3" cellspacing="3" class="auto-style6">
                     <tr>
-                        <td class="auto-style8" style="width: 25%"><strong>Numero De Documento:</strong></td>
+                        <td class="auto-style8" style="width: 25%"><strong>Número De Documento:</strong></td>
                         <td style="width: 20%">
                             <asp:TextBox ID="txtNroDocumento" runat="server" MaxLength="15"></asp:TextBox>
                             &nbsp;
@@ -76,7 +76,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style8" style="width: 40%"><strong>Valor Unitario:</strong></td>
+                        <td class="auto-style8" style="width: 40%"><strong>Valor Unítario:</strong></td>
                         <td class="auto-style12" style="width: 40%">
                             <asp:TextBox ID="txtVrUnitario" runat="server"></asp:TextBox>
                         </td>
@@ -121,7 +121,7 @@
                             <asp:MenuItem Text="Cancelar" Value="opcCancelar"></asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BackColor="Black" BorderColor="Red" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Width="50%" />
-                        <StaticMenuItemStyle Font-Bold="True" ForeColor="Red" HorizontalPadding="60px" />
+                        <StaticMenuItemStyle Font-Bold="True" ForeColor="Red" HorizontalPadding="150px" />
                     </asp:Menu>
 
                 </asp:Panel>

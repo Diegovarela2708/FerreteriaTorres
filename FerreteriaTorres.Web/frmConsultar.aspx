@@ -50,7 +50,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style6" style="width: 40%"><strong>Numero De Documento:</strong></td>
+                        <td class="auto-style6" style="width: 40%"><strong>Número De Documento:</strong></td>
                         <td class="auto-style7" style="width: 40%">
                             <asp:TextBox ID="txtNroDocumento" runat="server"></asp:TextBox>
                         </td>

@@ -42,13 +42,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Valor Unitario:</strong></td>
+                        <td class="auto-style7" style="width: 40%"><strong>Valor Unítario:</strong></td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtVrUnitario" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Valor Prestamo:</strong></td>
+                        <td class="auto-style7" style="width: 40%"><strong>Valor Préstamo:</strong></td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtVrPrestamo" runat="server"></asp:TextBox>
                         </td>
@@ -73,14 +73,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style9"><strong>Caracteristicas:</strong></td>
+                        <td class="auto-style9"><strong>Características:</strong></td>
                         <td class="auto-style10">
                             <asp:TextBox ID="txtCaracteristicas" runat="server" Height="58px" TextMode="MultiLine" Width="322px"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style7" style="width: 40%">
+                            <strong>
                             <asp:Label ID="lblCreadoPor" runat="server" Text="Creado Por:"></asp:Label>
+                            </strong>
                         </td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtCreadoPor" runat="server"></asp:TextBox>
@@ -88,7 +90,9 @@
                     </tr>
                     <tr>
                         <td class="auto-style7" style="width: 40%">
+                            <strong>
                             <asp:Label ID="lblFechaCreado" runat="server" Text="Fecha De Creado:"></asp:Label>
+                            </strong>
                         </td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtFechaCreado" runat="server" TextMode="DateTime"></asp:TextBox>

@@ -3,7 +3,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
     <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
                <tr>
-            <td class="auto-style5"><strong>Telefono Cliente</strong></td>
+            <td class="auto-style5"><strong>Teléfono Cliente</strong></td>
         </tr>
         <tr>
             <td class="auto-style9"></td>
@@ -12,26 +12,26 @@
             <td>
                 <table align="center" cellpadding="3" cellspacing="3" class="auto-style6">
                     <tr>
-                        <td class="auto-style7" style="width: 40%"><strong>Numero Telefonico</strong>:</td>
+                        <td class="auto-style7" style="width: 40%"><strong>Número Telefónico</strong>:</td>
                         <td class="auto-style8" style="width: 40%">
                             <asp:TextBox ID="txtMarca" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style12"><strong>Numero De Documento:</strong></td>
+                        <td class="auto-style12"><strong>Número De Documento:</strong></td>
                         <td class="auto-style13">
                             <asp:TextBox ID="txtNroDocumento" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style12"><strong>Tipo De Telefono</strong>:</td>
+                        <td class="auto-style12"><strong>Tipo De Teléfono</strong>:</td>
                         <td class="auto-style13">
                             <asp:DropDownList ID="ddlTIpoTelefono" runat="server" Width="191px">
                             </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style12"><strong>Descripción Del Telefono</strong>:</td>
+                        <td class="auto-style12"><strong>Descripción Del Teléfono</strong>:</td>
                         <td class="auto-style13">
                             <asp:TextBox ID="txtDescripTelefono" runat="server"></asp:TextBox>
                         </td>

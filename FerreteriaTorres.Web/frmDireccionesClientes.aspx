@@ -18,7 +18,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style5" style="width: 40%"><strong>Numero De Documento:</strong></td>
+                        <td class="auto-style5" style="width: 40%"><strong>Número De Documento:</strong></td>
                         <td style="width: 40%">
                             <asp:TextBox ID="txtNroDoc" runat="server"></asp:TextBox>
                         </td>

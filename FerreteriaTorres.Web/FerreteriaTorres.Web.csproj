@@ -105,7 +105,6 @@
     <Content Include="Imagenes\Delete26.png" />
     <Content Include="Imagenes\imagen11.jpg" />
     <Content Include="Imagenes\Loguito.JPG" />
-    <Content Include="OtraCosa.aspx" />
     <Content Include="SQL\BDFerreteria.sql" />
     <Content Include="SQL\Insert.sql" />
     <Content Include="SQL\Procedimientos.sql" />
@@ -222,13 +221,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="OtraCosa.aspx.cs">
-      <DependentUpon>OtraCosa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OtraCosa.aspx.designer.cs">
-      <DependentUpon>OtraCosa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
