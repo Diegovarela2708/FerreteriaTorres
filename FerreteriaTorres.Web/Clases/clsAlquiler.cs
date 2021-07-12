@@ -1,5 +1,6 @@
 ﻿using libConexionBD;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
@@ -20,6 +21,8 @@ namespace FerreteriaTorres.Web.Clases
         public string strNroDocumento { get; set; }
         public string strDireccion { get; set; }
         public string strCreadoPor { get; set; }
+        public DataSet Myds { get; private set; }
+        public DataTable Mydt { get; private set; }
 
         #endregion
 
@@ -117,6 +120,63 @@ namespace FerreteriaTorres.Web.Clases
             strSQL = "EXEC GrabarArquiler '" + Fecha + "', '" 
                 + strNroDocumento + "', '" + strDireccion + "', '" + strCreadoPor + "';";
             return Grabar();
+        }
+
+        public bool BuscarAlquiler(int StrIdEquipo, GridView grid)
+        {
+            try
+            {
+                if (StrIdEquipo <= 0 || grid == null)
+                {
+                    Error = "Nro. de Caso no Válido";
+                    return false;
+                }
+                strSQL = "EXEC BuscarAlquiler " + StrIdEquipo + ";";
+                clsConexionBD objCnx = new clsConexionBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.llenarDataSet(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+
+                Myds = objCnx.dataSet_Lleno;
+                objCnx = null;
+                Mydt = Myds.Tables[0];
+                if (Mydt.Rows.Count <= 0)
+                {
+                    Error = "No existe el caso nro.: " + StrIdEquipo;
+                    Myds.Clear();
+                    Myds = null;
+                    return false;
+                }
+                DataRow dr = Mydt.Rows[0];
+                intIdAlquiler = Convert.ToInt32(dr["intIdAlquiler"]); // ó dr[0]
+                Fecha = Convert.ToDateTime(dr["Fecha"]);
+                strNroDocumento = dr["strNroDocumento"].ToString();
+                strDireccion = dr["strNroDocumento"].ToString();
+                strCreadoPor = dr["strCreadoPor"].ToString();
+                
+                Mydt.Clear();
+                //Llenar el grid y darle formato
+                Mydt = Myds.Tables[1];
+                grid.DataSource = Mydt;
+                grid.DataBind();
+                grid.GridLines = GridLines.Both;
+                grid.CellPadding = 1;
+                grid.ForeColor = System.Drawing.Color.Black;
+                grid.BackColor = System.Drawing.Color.Beige;
+                grid.AlternatingRowStyle.BackColor = System.Drawing.Color.Gainsboro;
+                grid.HeaderStyle.BackColor = System.Drawing.Color.Aqua;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
         }
 
         #endregion

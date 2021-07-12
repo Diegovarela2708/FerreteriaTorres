@@ -12,15 +12,11 @@
             <td class="auto-style7">
                 <table align="center" cellpadding="3" cellspacing="3" class="auto-style6">
                     <tr>
-                        <td class="auto-style8" style="width: 25%"><strong>Número De Documento:</strong></td>
-                        <td style="width: 20%">
+                        <td class="auto-style8" style="width: 50%"><strong>Número De Documento:</strong></td>
+                        <td style="width: 50%">
                             <asp:TextBox ID="txtNroDocumento" runat="server" MaxLength="15"></asp:TextBox>
                             &nbsp;
                             <asp:ImageButton ID="btnBuscarCliente" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.png" Height="29px" OnClick="btnBuscarCliente_Click" Width="28px" />
-                        </td>
-                        <td class="auto-style8" style="width: 15%"><strong>Fecha:</strong></td>
-                        <td style="width: 20%">
-                            <asp:TextBox ID="txtFecha" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                         </td>
                     </tr>
                 </table>

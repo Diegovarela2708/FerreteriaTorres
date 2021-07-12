@@ -292,3 +292,31 @@ SELECT strUsuario, strContrasena,strNroDocumento,CONCAT(strApellidos,' ',strNomb
 WHERE strUsuario = @strUsuario and strContrasena = @strContrasena and Activo = 1
 --exec ValidarUsuario 'dalvarezv', '1234';
 END
+go
+
+CREATE procedure BuscarAlquiler
+@intIdAlquiler int
+as
+	Begin
+select intIdAlquiler,Convert (varchar(10), Fecha, 103) As Fecha,a.strNroDocumento,n.Apellidos,n.strNombres,j.strRazonSocial,strDireccion,a.strCreadoPor from alquiler a
+INNER JOIN Clientes c on a.strNroDocumento = c.strNroDocumento
+LEFT JOIN Natural n on c.strNroDocumento = n.strNroDocumento
+left join Juridico j on c.strNroDocumento = j.strNroDocumento
+where intIdAlquiler = @intIdAlquiler
+EXEC BuscarDetalleAlquiler @intIdAlquiler
+--EXEC BuscarAlquiler 20
+end
+
+GO
+
+create procedure BuscarDetalleAlquiler
+@intIdAlquiler int
+as
+	Begin
+	select intIdArquilerDetalle,ad.strIdEquipo,e.strDescripcion,e.strCaracteristicas,
+	intCantidad,ad.fltVrUnit,fltPorcentajeDes,fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion 
+	from AlquilerDetalle ad
+	INNER JOIN Equipos e on ad.strIdEquipo = e.strIdEquipo
+	where intIdAlquiler = @intIdAlquiler
+	--EXEC BuscarDetalleAlquiler 20
+	end

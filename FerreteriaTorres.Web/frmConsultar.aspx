@@ -75,8 +75,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style8" colspan="2">
-                            <asp:Button ID="btnConsultar" runat="server" Font-Bold="True" Text="Consultar" ForeColor="#CC0000" />
-                        </td>
+                            &nbsp;</td>
                     </tr>
                 </table>
             </td>
@@ -86,7 +85,36 @@
         </tr>
         <tr>
             <td>
-                <asp:GridView ID="grvDatos" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" ForeColor="Red" Width="100%">
+                <asp:GridView ID="grvDatos" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" ForeColor="Red" Width="100%" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="strIdEquipo" DataFormatString="{0:N2}" HeaderText="Id Equipo">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="strDescripcion" HeaderText="Descripcion">
+                        <ItemStyle HorizontalAlign="Justify" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="strCaracteristicas" HeaderText="Caracteristicas">
+                        <ItemStyle HorizontalAlign="Justify" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="intCantidad" DataFormatString="{0:N2}" HeaderText="Cantidad">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField AccessibleHeaderText="fltVrUnit" DataField="fltVrUnit" DataFormatString="{0:C2}" HeaderText="Vr Unitario">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="fltPorcentajeDes" DataFormatString="{0:P2}" HeaderText="Descuento %">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="fltVrDescuento" DataFormatString="{0:C2}" HeaderText="Vr Descuento">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="fltVrIva" DataFormatString="{0:C2}" HeaderText="Vr Iva">
+                        <HeaderStyle HorizontalAlign="Right" />
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="FechaEntrega" DataFormatString="{0:yyyy-mm-d}" HeaderText="Fecha Entrega" />
+                        <asp:BoundField DataField="FechaDevolucion" DataFormatString="{0:yyyy-mm-d HH:MM}" HeaderText="Fecha Devolucion" />
+                    </Columns>
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
@@ -95,7 +123,9 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td class="auto-style8">
+                <asp:Label ID="lblMsj" runat="server" Text="Label"></asp:Label>
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>

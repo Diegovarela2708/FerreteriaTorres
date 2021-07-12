@@ -48,7 +48,7 @@ namespace FerreteriaTorres.Web
         private void Deshabilitar()
         {
             this.txtNroDocumento.Enabled = false;
-            this.txtFecha.Enabled = false;
+            
             this.ddlDirecciones.Enabled = false;
             this.txtIdAlquiler.Enabled = false;
             this.txtIdEquipo.Enabled = false;
@@ -64,7 +64,7 @@ namespace FerreteriaTorres.Web
         private void Habilitar()
         {
             this.txtNroDocumento.Enabled = true;
-            this.txtFecha.Enabled = true;
+           
             this.ddlDirecciones.Enabled = true;
             this.txtIdAlquiler.Enabled = true;
             this.txtIdEquipo.Enabled = true;
@@ -95,53 +95,11 @@ namespace FerreteriaTorres.Web
             }
         }
 
-        //public void Grabar()
-        //{
-        //    try
-        //    {
-        //        //strNroDocumento = txtNroDocumento.Text.Trim();
-        //        //FechaHoy = System.DateTime.UtcNow.ToLocalTime();
-        //        //strDireCliente = txtDireCliente.Text.Trim();
-        //        //strIdAlquiler = txtIdAlquiler.Text.Trim();
-        //        //strIdEquipo = txtIdEquipo.Text.Trim();
-        //        //strDescripcion = txtDescripcion.Text.Trim();
-        //        //intCantidad = Convert.ToInt32(txtCantidad.Text.Trim());
-        //        //fltVrUnitario = Convert.ToSingle(txtValorUnitario.Text.Trim());
-        //        //intCantAlquilada = Convert.ToInt32(txtCantidadAlquilada.Text.Trim());
-        //        //fltPorcenDescuento = Convert.ToSingle(txtPorcentajeDescuento.Text.Trim());
-        //        //FechaEntrega = System.DateTime.UtcNow.ToLocalTime();
-        //        //FechaDevolucion = System.DateTime.UtcNow.ToLocalTime();
-
-        //        //clsAlquiler ObjclsAl = new clsAlquiler(strApp, strNroDocumento, FechaHoy,strDireCliente,strIdAlquiler,strIdEquipo,strDescripcion,intCantidad,
-        //        //                                       fltVrUnitario, intCantAlquilada,fltPorcenDescuento,FechaEntrega,FechaDevolucion);
-
-        //        //if(intOpcion == 1)
-        //        //{
-        //        //    if(!ObjclsAl.grabarMaestro())
-        //        //    {
-        //        //        Mensaje(ObjclsAl.Error);
-        //        //        ObjclsAl = null;
-        //        //        return;
-        //        //    }
-        //        //}
-
-        //        /* Diego en esta parte sigue otra cosa que el man tiene en el formulario de el
-        //         pero no se como continuarlo, quedó faltando el page load y en los cls donde van
-        //        las sentencias sql no las pude colocar debido a que no tengo sql y no puedo probar si las
-        //        cosas van quedando bien*/
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        Mensaje(ex.Message);
-        //    }
-        //}
+     
 
         private void Limpiar()
         {
-            this.txtNroDocumento.Text = string.Empty;
-            this.txtFecha.Text = string.Empty;
+            
             this.txtIdAlquiler.Text = string.Empty;
             this.txtIdEquipo.Text = string.Empty;
             this.txtDescripcion.Text = string.Empty;
