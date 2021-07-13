@@ -32,13 +32,15 @@ FechaCreado datetime not null
 go
 Create Table Departamentos(
 intIdDepartamento int primary key,
-strNombre Varchar(20) not null
+strNombre Varchar(max) not null,
+intCodigo int Not null
 );
 go
 Create Table Ciudades(
 intIdCiudad int primary key,
-strDescripcion varchar(20) not null,
+strDescripcion varchar(max) not null,
 intIdDepartamento int not null,
+intCodigo int Not null,
 CONSTRAINT fk_intIdDepartamento FOREIGN KEY (intIdDepartamento) REFERENCES Departamentos(intIdDepartamento),
 );
 go
