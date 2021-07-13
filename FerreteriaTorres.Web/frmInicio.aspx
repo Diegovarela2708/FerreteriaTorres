@@ -14,8 +14,7 @@
         </tr>
         <tr>
             <td class="auto-style7">
-                <asp:Label ID="lblUsuario" runat="server"></asp:Label>
-            </td>
+                &nbsp;</td>
         </tr>
     </table>
 

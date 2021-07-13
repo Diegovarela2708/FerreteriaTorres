@@ -238,7 +238,18 @@ from Equipos
  END
 
 GO
-
+CREATE PROCEDURE BuscarClienteNroDocumento
+@strNroDocumento VARCHAR(15)
+AS
+ BEGIN
+ select  c.strNroDocumento,j.strRazonSocial,n.Apellidos,n.strNombres,c.TipoCliente
+from Clientes c
+left join Juridico j on c.strNroDocumento = j.strNroDocumento
+left join Natural n on c.strNroDocumento = n.strNroDocumento
+ WHERE c.strNroDocumento = @strNroDocumento
+ -- EXEC BuscarClienteNroDocumento '1119217542';
+ END
+go
 CREATE PROCEDURE GrabarArquilerDetalle
 @intIdAlquiler int,
 @strIdEquipo varchar(20),
@@ -288,8 +299,11 @@ CREATE  PROCEDURE ValidarUsuario
 @strContrasena varchar (20)
 AS
 BEGIN
-SELECT strUsuario, strContrasena,strNroDocumento,CONCAT(strApellidos,' ',strNombres) as strApellidoNombre FROM Empleados
-WHERE strUsuario = @strUsuario and strContrasena = @strContrasena and Activo = 1
+SELECT strUsuario, strContrasena,strNroDocumento,
+CONCAT(strApellidos,' ',strNombres)as strApellidoNombre,
+Activo
+FROM Empleados
+WHERE strUsuario = @strUsuario and strContrasena = @strContrasena
 --exec ValidarUsuario 'dalvarezv', '1234';
 END
 go
@@ -298,7 +312,7 @@ CREATE procedure BuscarAlquiler
 @intIdAlquiler int
 as
 	Begin
-select intIdAlquiler,Convert (varchar(10), Fecha, 103) As Fecha,a.strNroDocumento,n.Apellidos,n.strNombres,j.strRazonSocial,strDireccion,a.strCreadoPor from alquiler a
+select intIdAlquiler,Convert (varchar(10), Fecha, 103) As Fecha,a.strNroDocumento,n.Apellidos,n.strNombres,j.strRazonSocial,strDireccion,a.strCreadoPor,c.TipoCliente from alquiler a
 INNER JOIN Clientes c on a.strNroDocumento = c.strNroDocumento
 LEFT JOIN Natural n on c.strNroDocumento = n.strNroDocumento
 left join Juridico j on c.strNroDocumento = j.strNroDocumento

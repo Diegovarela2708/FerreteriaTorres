@@ -10,7 +10,7 @@ namespace FerreteriaTorres.Web.Clases
         #region "Atributos/Propiedades"
         private string strApp;
 
-        private string strSQL;
+        
 
         private SqlDataReader myReader;
 
@@ -23,6 +23,8 @@ namespace FerreteriaTorres.Web.Clases
 
         public string strNroDocumento { get; set; }
 
+        public bool Activo { get; set; }
+
         #endregion
 
         #region "Constructor"
@@ -33,7 +35,7 @@ namespace FerreteriaTorres.Web.Clases
             Error = string.Empty;
             strUsuario = string.Empty;
             strContrasena = string.Empty;
-
+            Activo = false;
         }
 
         public clsLogin(string Aplicacion, string strUsuario, string strContrasenia)
@@ -102,13 +104,19 @@ namespace FerreteriaTorres.Web.Clases
             }
 
             myReader.Read();
-
+            Activo = myReader.GetBoolean(4);
+            if (!Activo)
+            {
+                Error = "El usuario esta deshabilitado";
+                ObjCnx.cerrarCnx();
+                ObjCnx = null;
+                return false;
+            }
             strUsuario = myReader.GetString(0);
             strContrasena = myReader.GetString(1);
             strNroDocumento = myReader.GetString(2);
             strNombreEmpleado = myReader.GetString(3);
-
-
+            
             myReader.Close();
             ObjCnx.cerrarCnx();
             ObjCnx = null;

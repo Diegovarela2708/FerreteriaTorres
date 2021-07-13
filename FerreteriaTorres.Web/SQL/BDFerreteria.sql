@@ -75,7 +75,8 @@ CONSTRAINT fk_intIdTipoDocumento2 FOREIGN KEY (intIdTipoDocumento) REFERENCES Ti
 strNroDocumento varchar(15) primary key,
 strCorreo varchar(20) null,
 strCreadoPor varchar(20) not null,
-FechaCreado datetime not null
+FechaCreado datetime not null,
+TipoCliente char(1) not null
 
 );
 go

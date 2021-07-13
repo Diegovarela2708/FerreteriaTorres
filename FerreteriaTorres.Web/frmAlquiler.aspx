@@ -3,20 +3,47 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
     &nbsp;<table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
         <tr>
-            <td class="auto-style5"><strong>Alquiler</strong></td>
+            <td class="auto-style20"><strong>Alquiler</strong></td>
         </tr>
         <tr>
-            <td class="auto-style20"></td>
+            <td class="auto-style19"></td>
         </tr>
         <tr>
             <td class="auto-style7">
                 <table align="center" cellpadding="3" cellspacing="3" class="auto-style6">
+                    <tr>
+                        <td class="auto-style8" style="width: 50%"><strong>
+                            <asp:Label ID="lblIdAlquiler" runat="server" Text="IdAlquiler:"></asp:Label>
+                        </strong></td>
+                        <td style="width: 50%">
+                            <asp:TextBox ID="txtIdAlquiler" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="auto-style8" style="width: 50%"><strong>Número De Documento:</strong></td>
                         <td style="width: 50%">
                             <asp:TextBox ID="txtNroDocumento" runat="server" MaxLength="15"></asp:TextBox>
                             &nbsp;
                             <asp:ImageButton ID="btnBuscarCliente" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.png" Height="29px" OnClick="btnBuscarCliente_Click" Width="28px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style8" style="width: 50%"><strong>Nombre cliente:</strong></td>
+                        <td style="width: 50%">
+                            <asp:TextBox ID="txtNombreCliente" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style8" style="width: 50%"><strong>Fecha:</strong></td>
+                        <td style="width: 50%">
+                            <asp:TextBox ID="txtFCreado" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style8" style="width: 50%"><strong aria-orientation="horizontal">Dirección Cliente:</strong></td>
+                        <td style="width: 50%">
+                            <asp:DropDownList ID="ddlDirecciones" runat="server" Width="213px">
+                        </asp:DropDownList>
                         </td>
                     </tr>
                 </table>
@@ -39,20 +66,6 @@
             <td>
                 <table cellpadding="3" cellspacing="3" class="auto-style6">
                     <tr>
-                        <td class="auto-style11"><strong>
-                            <asp:Label ID="lblIdAlquiler" runat="server" Text="IdAlquiler:"></asp:Label>
-                        </strong></td>
-                        <td class="auto-style10">
-                            <asp:TextBox ID="txtIdAlquiler" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style8" style="width: 40%" aria-orientation="horizontal"><strong aria-orientation="horizontal">Dirección Cliente:</strong></td>
-                        <td class="auto-style12" style="width: 40%">&nbsp;<asp:DropDownList ID="ddlDirecciones" runat="server" Width="213px">
-                        </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
                         <td class="auto-style13"><strong>IdEquipo:</strong></td>
                         <td class="auto-style14">
                             <asp:TextBox ID="txtIdEquipo" runat="server" MaxLength="20"></asp:TextBox>
@@ -72,31 +85,31 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style8" style="width: 40%"><strong>Valor Unítario:</strong></td>
+                        <td class="auto-style8" style="width: 40%"><strong>Valor unítario:</strong></td>
                         <td class="auto-style12" style="width: 40%">
                             <asp:TextBox ID="txtVrUnitario" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style8" style="width: 40%"><strong>Cantidad Alquilada:</strong></td>
+                        <td class="auto-style8" style="width: 40%"><strong>Cantidad alquilada:</strong></td>
                         <td class="auto-style12" style="width: 40%">
                             <asp:TextBox ID="txtCantidadAlquilada" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style13"><strong>Porcentaje De Descuento:</strong></td>
+                        <td class="auto-style13"><strong>Porcentaje&nbsp; descuento:</strong></td>
                         <td class="auto-style14">
                             <asp:TextBox ID="txtPorcentajeDescuento" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style8" style="width: 40%"><strong>Fecha De Entrega:</strong></td>
+                        <td class="auto-style8" style="width: 40%"><strong>Fecha&nbsp; entrega:</strong></td>
                         <td class="auto-style12" style="width: 40%">
                             <asp:TextBox ID="txtFechaEntrega" runat="server" TextMode="Date"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style13"><strong>Fecha De Devolución:</strong></td>
+                        <td class="auto-style13"><strong>Fecha&nbsp; devolución:</strong></td>
                         <td class="auto-style14">
                             <asp:TextBox ID="txtFechaDevolucion" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                         </td>
@@ -232,18 +245,6 @@
             height: 26px;
         }
 
-        .auto-style10 {
-            width: 40%;
-            height: 31px;
-            text-align: left;
-        }
-
-        .auto-style11 {
-            width: 40%;
-            height: 31px;
-            text-align: right;
-        }
-
         .auto-style12 {
             text-align: left;
         }
@@ -277,6 +278,9 @@
 
         .auto-style20 {
             height: 31px;
+            text-align: center;
+            color: #CC0000;
+            font-size: xx-large;
         }
         </style>
 </asp:Content>

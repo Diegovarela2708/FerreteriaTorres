@@ -12,6 +12,9 @@ namespace FerreteriaTorres.Web.Clases
         public string Error { get; private set; }
 
         private string strSQL;
+        public string strNroDocumento { get; set; }
+        public string strNombres { get; set; }
+        
 
         private SqlDataReader myReader;
         #endregion
@@ -60,6 +63,60 @@ namespace FerreteriaTorres.Web.Clases
                 objCnx.cerrarCnx();
                 objCnx = null;
                 return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
+
+        public bool BuscarCliente(string NroDocumento)
+        {
+            try
+            {
+                strSQL = "EXEC BuscarClienteNroDocumento '" + NroDocumento + "';";
+                clsConexionBD objCnx = new clsConexionBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                myReader = objCnx.dataReader_Lleno;
+                if (!myReader.HasRows)
+                {
+                    Error = "No existe registro con Nro. de documento: " + NroDocumento;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+
+                myReader.Read();
+                this.strNroDocumento = myReader.GetString(0);
+                 
+                if (myReader.GetString(4) == "N")
+                {
+                    this.strNombres = myReader.GetString(2) + " " + myReader.GetString(3);
+
+                    myReader.Close();
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return true;
+                }
+                else
+                {
+
+                    this.strNombres = myReader.GetString(1);
+
+                    myReader.Close();
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return true;
+                }
+                
             }
             catch (Exception ex)
             {

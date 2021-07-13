@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace FerreteriaTorres.Web
 {
@@ -28,7 +24,7 @@ namespace FerreteriaTorres.Web
             this.txtCreadoPor.Enabled = false;
         }
 
-        
+
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,20 +42,20 @@ namespace FerreteriaTorres.Web
             try
             {
                 Mensaje(string.Empty);
-                
-                
-                
+
+
+
                 if (txtIdAlquiler.Text == string.Empty)
                 {
                     Mensaje("Numero de alquiler no valido.");
                     return;
                 }
-                if (!int.TryParse(txtIdAlquiler.Text,out intIdAlquiler))
+                if (!int.TryParse(txtIdAlquiler.Text, out intIdAlquiler))
                 {
                     Mensaje("Solo se permiten numeros enteros.");
                     return;
                 }
-                if (intIdAlquiler < 1 )
+                if (intIdAlquiler < 1)
                 {
                     Mensaje("el numero debe de ser mayor a 0");
                     return;
@@ -74,8 +70,9 @@ namespace FerreteriaTorres.Web
                 this.txtIdAlquiler.Text = ObjclsA.intIdAlquiler.ToString();
                 this.txtFecha.Text = ObjclsA.Fecha.ToShortDateString();
                 this.txtNroDocumento.Text = ObjclsA.strNroDocumento.ToString();
-                this.txtDireccion.Text = ObjclsA.strDireccion.ToString() ;
+                this.txtDireccion.Text = ObjclsA.strDireccion.ToString();
                 this.txtCreadoPor.Text = ObjclsA.strCreadoPor;
+                this.txtNombre.Text = ObjclsA.strNombreCliente;
                 ObjclsA = null;
             }
             catch (Exception ex)

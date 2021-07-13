@@ -90,7 +90,7 @@ namespace FerreteriaTorres.Web
                 intIdMarca = Convert.ToInt32(rblMarca.SelectedValue);
                 Activo = chkActivo.Checked;
                 strCaracteristicas = txtCaracteristicas.Text.ToUpperInvariant().Trim();
-                strCreadoPor = "Pendiente";
+                strCreadoPor = Session["strNroDocumento"].ToString();
                 FechaCreado = System.DateTime.UtcNow.ToLocalTime();
 
                 clsEquipos ObjclsE = new clsEquipos(strApp, strIdEquipo, strDescripcion,

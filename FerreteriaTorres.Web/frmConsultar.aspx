@@ -23,8 +23,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Encabezado" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="Menu" runat="server">
-</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
     <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
         <tr>
@@ -37,7 +35,7 @@
             <td>
                 <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
                     <tr>
-                        <td class="auto-style6" style="width: 40%"><strong>idAlquiler:</strong></td>
+                        <td class="auto-style6" style="width: 40%"><strong>Id alquiler:</strong></td>
                         <td class="auto-style7" style="width: 40%">
                             <asp:TextBox ID="txtIdAlquiler" runat="server"></asp:TextBox>
                         &nbsp;<asp:ImageButton ID="btnBuscarIdAlquiler" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Imagenes/Buscar.png" Height="24px" OnClick="btnBuscarIdAlquiler_Click" Width="25px" />
@@ -50,7 +48,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style6" style="width: 40%"><strong>Número De Documento:</strong></td>
+                        <td class="auto-style6" style="width: 40%"><strong>Número documento:</strong></td>
                         <td class="auto-style7" style="width: 40%">
                             <asp:TextBox ID="txtNroDocumento" runat="server"></asp:TextBox>
                         </td>
@@ -68,7 +66,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style6" style="width: 40%"><strong>Creado Por:</strong></td>
+                        <td class="auto-style6" style="width: 40%"><strong>Creado por:</strong></td>
                         <td class="auto-style7" style="width: 40%">
                             <asp:TextBox ID="txtCreadoPor" runat="server"></asp:TextBox>
                         </td>
@@ -90,22 +88,22 @@
                         <asp:BoundField DataField="strIdEquipo" DataFormatString="{0:N2}" HeaderText="Id Equipo">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="strDescripcion" HeaderText="Descripcion">
+                        <asp:BoundField DataField="strDescripcion" HeaderText="Descripción">
                         <ItemStyle HorizontalAlign="Justify" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="strCaracteristicas" HeaderText="Caracteristicas">
+                        <asp:BoundField DataField="strCaracteristicas" HeaderText="Características">
                         <ItemStyle HorizontalAlign="Justify" />
                         </asp:BoundField>
                         <asp:BoundField DataField="intCantidad" DataFormatString="{0:N2}" HeaderText="Cantidad">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField AccessibleHeaderText="fltVrUnit" DataField="fltVrUnit" DataFormatString="{0:C2}" HeaderText="Vr Unitario">
+                        <asp:BoundField AccessibleHeaderText="fltVrUnit" DataField="fltVrUnit" DataFormatString="{0:C2}" HeaderText="Vr Unit">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="fltPorcentajeDes" DataFormatString="{0:P2}" HeaderText="Descuento %">
+                        <asp:BoundField DataField="fltPorcentajeDes" DataFormatString="{0:P2}" HeaderText="% Desct">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="fltVrDescuento" DataFormatString="{0:C2}" HeaderText="Vr Descuento">
+                        <asp:BoundField DataField="fltVrDescuento" DataFormatString="{0:C2}" HeaderText="Vr Desct">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:BoundField DataField="fltVrIva" DataFormatString="{0:C2}" HeaderText="Vr Iva">

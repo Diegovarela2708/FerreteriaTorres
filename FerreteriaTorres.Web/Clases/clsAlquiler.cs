@@ -11,8 +11,7 @@ namespace FerreteriaTorres.Web.Clases
         #region "Atributos/Propiedades"
         private string strApp;
         private string strSQL;
-
-        private SqlDataReader myReader;
+       
 
         public string Error { get; private set; }
 
@@ -21,6 +20,8 @@ namespace FerreteriaTorres.Web.Clases
         public string strNroDocumento { get; set; }
         public string strDireccion { get; set; }
         public string strCreadoPor { get; set; }
+
+        public string strNombreCliente { get; set; }
         public DataSet Myds { get; private set; }
         public DataTable Mydt { get; private set; }
 
@@ -37,6 +38,7 @@ namespace FerreteriaTorres.Web.Clases
             strNroDocumento = string.Empty;
             strDireccion = string.Empty;
             strCreadoPor = string.Empty;
+            strNombreCliente = string.Empty;
 
         }
 
@@ -154,9 +156,17 @@ namespace FerreteriaTorres.Web.Clases
                 }
                 DataRow dr = Mydt.Rows[0];
                 intIdAlquiler = Convert.ToInt32(dr["intIdAlquiler"]); // ó dr[0]
+                if (dr["TipoCliente"].ToString() == "N")
+                {
+                    strNombreCliente = dr["Apellidos"] + " " + dr["strNombres"];
+                }
+                else
+                {
+                    strNombreCliente = dr["strRazonSocial"].ToString();
+                }
                 Fecha = Convert.ToDateTime(dr["Fecha"]);
                 strNroDocumento = dr["strNroDocumento"].ToString();
-                strDireccion = dr["strNroDocumento"].ToString();
+                strDireccion = dr["strDireccion"].ToString();
                 strCreadoPor = dr["strCreadoPor"].ToString();
                 
                 Mydt.Clear();

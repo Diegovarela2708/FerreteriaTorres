@@ -13,7 +13,7 @@ namespace FerreteriaTorres.Web
         {
             if (!IsPostBack)
             {
-                lblUsuario.Text = Session["strNombreEmpleado"].ToString();
+                 
             }
         }
     }

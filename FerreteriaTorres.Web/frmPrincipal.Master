@@ -23,6 +23,9 @@
         .auto-style4 {
             width: 100%;
         }
+        .auto-style5 {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -32,8 +35,9 @@
                 <tr>
                     <td class="auto-style3">
                         <img alt="" class="auto-style2" src="Imagenes/Loguito.JPG" /></td>
-                    <td>
+                    <td class="auto-style5">
                         <asp:ContentPlaceHolder ID="Encabezado" runat="server">
+                            <asp:Label ID="lblUsuario" runat="server"></asp:Label>
                         </asp:ContentPlaceHolder>
                     </td>
                 </tr>
