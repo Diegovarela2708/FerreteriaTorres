@@ -143,17 +143,22 @@ from Equipos
 
  go
 
- create PROCEDURE GrabarArquiler
+ CREATE PROCEDURE GrabarArquiler
 @Fecha DATETIME,
 @strNroDocumento varchar(15),
 @strDireccion varchar(20),
-@strCreadoPor varchar(20)
+@strCreadoPor varchar(20),
+@fltVrBruto float,
+@fltVrDescuento float,
+@fltVrIva float,
+@fltVrNeto float
 AS
  BEGIN
  BEGIN TRANSACTION tx
  INSERT INTO Alquiler( Fecha, strNroDocumento,
- strDireccion, strCreadoPor)
- VALUES (@Fecha, @strNroDocumento, @strDireccion, @strCreadoPor);
+ strDireccion, strCreadoPor,fltVrBruto,fltVrDescuento,fltVrIva,fltVrNeto)
+ VALUES (@Fecha, @strNroDocumento, @strDireccion, @strCreadoPor,
+ @fltVrBruto,@fltVrDescuento,@fltVrIva,@fltVrNeto);
  IF ( @@ERROR > 0 )
  BEGIN
  ROLLBACK TRANSACTION tx
@@ -165,7 +170,6 @@ AS
  Return
   -- EXEC GrabarArquiler '7-7-2021','1119217542','cALLE Prueba','DIEGO';
  END
-
  GO
 
  CREATE PROCEDURE EliminarEquipo
@@ -250,6 +254,18 @@ left join Natural n on c.strNroDocumento = n.strNroDocumento
  -- EXEC BuscarClienteNroDocumento '1119217542';
  END
 go
+ CREATE PROCEDURE DisminuirExistencia
+@intCantidad int,
+@strIdEquipo varchar(20)
+as
+BEGIN
+SET NOCOUNT OFF;
+UPDATE Equipos SET intCantExistencia = intCantExistencia - @intCantidad
+WHERE strIdEquipo = @strIdEquipo
+--EXEC DisminuirExistencia 10,'1';
+END
+go
+
 CREATE PROCEDURE GrabarArquilerDetalle
 @intIdAlquiler int,
 @strIdEquipo varchar(20),
@@ -280,17 +296,7 @@ fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion)
  Return
   -- EXEC GrabarArquilerDetalle 1,1,5,1500,0,0,0,'3-7-2021 12:22','7-20-2021 12:22';
  END
- go
- CREATE PROCEDURE DisminuirExistencia
-@intCantidad int,
-@strIdEquipo varchar(20)
-as
-BEGIN
-SET NOCOUNT OFF;
-UPDATE Equipos SET intCantExistencia = intCantExistencia - @intCantidad
-WHERE strIdEquipo = @strIdEquipo
---EXEC DisminuirExistencia 10,'1';
-END
+ 
 
 GO
 
@@ -307,7 +313,18 @@ WHERE strUsuario = @strUsuario and strContrasena = @strContrasena
 --exec ValidarUsuario 'dalvarezv', '1234';
 END
 go
-
+create procedure BuscarDetalleAlquiler
+@intIdAlquiler int
+as
+	Begin
+	select intIdArquilerDetalle,ad.strIdEquipo,e.strDescripcion,e.strCaracteristicas,
+	intCantidad,ad.fltVrUnit,fltPorcentajeDes,fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion 
+	from AlquilerDetalle ad
+	INNER JOIN Equipos e on ad.strIdEquipo = e.strIdEquipo
+	where intIdAlquiler = @intIdAlquiler
+	--EXEC BuscarDetalleAlquiler 20
+	end
+go
 CREATE procedure BuscarAlquiler
 @intIdAlquiler int
 as
@@ -323,14 +340,3 @@ end
 
 GO
 
-create procedure BuscarDetalleAlquiler
-@intIdAlquiler int
-as
-	Begin
-	select intIdArquilerDetalle,ad.strIdEquipo,e.strDescripcion,e.strCaracteristicas,
-	intCantidad,ad.fltVrUnit,fltPorcentajeDes,fltVrDescuento,fltVrIva,FechaEntrega,FechaDevolucion 
-	from AlquilerDetalle ad
-	INNER JOIN Equipos e on ad.strIdEquipo = e.strIdEquipo
-	where intIdAlquiler = @intIdAlquiler
-	--EXEC BuscarDetalleAlquiler 20
-	end

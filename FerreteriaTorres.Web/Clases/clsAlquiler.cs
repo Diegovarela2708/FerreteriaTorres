@@ -20,7 +20,10 @@ namespace FerreteriaTorres.Web.Clases
         public string strNroDocumento { get; set; }
         public string strDireccion { get; set; }
         public string strCreadoPor { get; set; }
-
+        public float fltVrBruto { get; set; }
+        public float fltVrDescuento { get; set; }
+        public float fltVrIva { get; set; }
+        public float fltVrNeto { get; set; }
         public string strNombreCliente { get; set; }
         public DataSet Myds { get; private set; }
         public DataTable Mydt { get; private set; }
@@ -39,12 +42,16 @@ namespace FerreteriaTorres.Web.Clases
             strDireccion = string.Empty;
             strCreadoPor = string.Empty;
             strNombreCliente = string.Empty;
+            fltVrBruto = 0;
+            fltVrDescuento = 0;
+            fltVrIva = 0;
+            fltVrNeto = 0;
 
         }
 
         public clsAlquiler(string Aplicacion, DateTime fecha,
             string strNroDocumento, string strDireccion,
-            string strCreadoPor)
+            string strCreadoPor,float fltVrBruto,float fltVrDescuento,float fltVrIva,float fltVrNeto)
         {
             strApp = Aplicacion;
             Error = string.Empty;
@@ -52,6 +59,10 @@ namespace FerreteriaTorres.Web.Clases
             this.strNroDocumento = strNroDocumento;
             this.strDireccion = strDireccion;
             this.strCreadoPor = strCreadoPor;
+            this.fltVrBruto = fltVrBruto;
+            this.fltVrDescuento = fltVrDescuento;
+            this.fltVrIva = fltVrIva;
+            this.fltVrNeto = fltVrNeto;
         }
 
 
@@ -120,7 +131,8 @@ namespace FerreteriaTorres.Web.Clases
             if (!Validar())
                 return false;
             strSQL = "EXEC GrabarArquiler '" + Fecha + "', '" 
-                + strNroDocumento + "', '" + strDireccion + "', '" + strCreadoPor + "';";
+                + strNroDocumento + "', '" + strDireccion + "', '" + strCreadoPor
+                + "', " + fltVrBruto+", "+ fltVrDescuento + ", " + fltVrIva+ ", "+fltVrNeto + " ;";
             return Grabar();
         }
 

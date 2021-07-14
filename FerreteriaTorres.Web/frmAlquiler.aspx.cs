@@ -21,6 +21,10 @@ namespace FerreteriaTorres.Web
         public string strNombreCliente;
         public string strDireccion;
         public string strCreadoPor;
+        public float fltVrBruto;
+        public float fltVrDescuentoEnca;
+        public float fltVrIvaEnca;
+        public float fltVrNeto;
         //AlquilerDetaller
         public string intIdArquilerDetalle;
         public string strIdEquipo;
@@ -37,7 +41,8 @@ namespace FerreteriaTorres.Web
         public float VrUnitario;
         public int Existencia;
         #endregion
-
+        //Totales
+        public float fltTotalBruto = 0, fltTotalIva = 0, fltTotalDescuento = 0, fltTotalNeto = 0;
 
 
         #region "Metodos Personalizados"
@@ -298,7 +303,7 @@ namespace FerreteriaTorres.Web
 
         private void ActualizarTotales()
         {
-            float fltTotalBruto = 0, fltTotalIva = 0, fltTotalDescuento = 0, fltTotalNeto = 0;
+            
             foreach (clsAlquilerDetalle MiDetalle in MisDetalleAlquiler)
             {
                 fltTotalBruto += MiDetalle.fltVrBruto;
@@ -320,8 +325,13 @@ namespace FerreteriaTorres.Web
                 strNroDocumento = txtNroDocumento.Text.Trim();
                 strDireccion = ddlDirecciones.SelectedValue;
                 strCreadoPor = Session["strNroDocumento"].ToString();
+                fltVrBruto = fltTotalBruto;
+                fltVrDescuentoEnca = fltTotalDescuento;
+                fltVrIvaEnca = fltTotalIva;
+                fltVrNeto = fltTotalNeto;
 
-                clsAlquiler ObjclsA = new clsAlquiler(strApp, FechaCreado, strNroDocumento, strDireccion, strCreadoPor);
+                clsAlquiler ObjclsA = new clsAlquiler(strApp, FechaCreado, strNroDocumento, strDireccion, strCreadoPor,
+                    fltVrBruto,fltVrDescuentoEnca,fltVrIvaEnca,fltVrNeto);
 
                 if (!ObjclsA.grabarMaestro())
                 {
@@ -457,6 +467,9 @@ namespace FerreteriaTorres.Web
                             Session["intOpcion"] = 1;
                             Habilitar();
                             LimpiarGrid();
+                            txtIdAlquiler.Visible = false;
+                            lblIdAlquiler.Visible = false;
+                                
                         }
                         
                     }
@@ -474,7 +487,7 @@ namespace FerreteriaTorres.Web
                         if (!ValidarEncabezado()) return;
                         Grabar();
                         Deshabilitar();
-                        Session["intOpcion"] = 1;
+                        Session["intOpcion"] = 0;
                         txtIdAlquiler.Text = intIdAlquiler.ToString();
                         txtNroDocumento.Enabled = false;
                         //MisDetalleAlquiler.Clear();

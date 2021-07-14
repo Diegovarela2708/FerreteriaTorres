@@ -1,3 +1,4 @@
+
 go
 Create Database Ferreteria
 go
@@ -125,6 +126,10 @@ intIdAlquiler int identity primary key,
 Fecha Datetime not null,
 strNroDocumento Varchar(15) not null,
 CONSTRAINT fk_strNroDocumento4 FOREIGN KEY (strNroDocumento) REFERENCES Clientes(strNroDocumento),
+fltVrBruto float not null,
+fltVrDescuento float not null,
+fltVrIva float not null,
+fltVrNeto float not null,
 strDireccion varchar(20) not null,
 strCreadoPor varchar(20) not null
 )
@@ -144,14 +149,6 @@ FechaEntrega datetime not null,
 FechaDevolucion datetime not null
 )
 go
-CREATE PROCEDURE ValidarUsuario
-@strUsuario varchar (20),
-@strContrasena varchar (20)
-AS
-BEGIN
-SELECT strUsuario as Usuario, strContrasena as Clave  FROM Empleados
-WHERE strUsuario = @strUsuario and strContrasena = @strContrasena and Activo = 1
---EXEC ValidarUsuario 'dalvarezv','1234'
-END
+
 
 
