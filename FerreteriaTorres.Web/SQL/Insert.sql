@@ -1,21 +1,4 @@
-INSERT INTO TipoEquipos ([strDescripcion])
-  VALUES ('Electronicos'),('Mecanicos');
-
-INSERT INTO Marcas (strNombre)
-VALUES ('ARDUINO'),
-('AVTECH'),
-('CISCO'),
-('EMINENT'),
-('GENIUS'),
-('Midland'),
-('NEUTRIK')
-
-INSERT INTO Equipos(strIdEquipo,strDescripcion,intIdTipoEquipo,fltVrUnit,fltVrPrestamo,intImpuesto,intCantExistencia,intIdMarca,Activo,strCaracteristicas,strCreadoPor,FechaCreado)
-VALUES ('123456','Martillo manual',2,20000,3000,5,5,9,1,'solo sirve para martillar','dalvarezv','01/07/2021 02:31:45')
-
----Ciudades
-
-
+go
 INSERT [dbo].[Departamentos] ([intIdDepartamento], [strNombre],[intCodigo] ) VALUES (1, N'Antioquia', 5)
 INSERT [dbo].[Departamentos] ([intIdDepartamento], [strNombre], [intCodigo]) VALUES (2, N'Atlantico', 8)
 INSERT [dbo].[Departamentos] ([intIdDepartamento], [strNombre], [intCodigo]) VALUES (3, N'D. C. Santa Fe de Bogotá', 11)
@@ -1186,3 +1169,95 @@ INSERT [dbo].[Ciudades] ([intIdCiudad], [intIdDepartamento], [intCodigo], [strDe
 INSERT [dbo].[Ciudades] ([intIdCiudad], [intIdDepartamento], [intCodigo], [strDescripcion]) VALUES (1124, 33, 666, N'SANTA ROSALIA')
 INSERT [dbo].[Ciudades] ([intIdCiudad], [intIdDepartamento], [intCodigo], [strDescripcion]) VALUES (1125, 33, 760, N'SAN JOSE DE OCUNE')
 INSERT [dbo].[Ciudades] ([intIdCiudad], [intIdDepartamento], [intCodigo], [strDescripcion]) VALUES (1126, 33, 773, N'CUMARIBO')
+
+go
+INSERT INTO TipoEquipos ([strDescripcion])
+VALUES
+('Electronicos'),
+('Mecanicos');
+go
+INSERT INTO dbo.Marcas (strNombre) 
+VALUES ('Caterpillar'),
+('Komatsu'), 
+('Cat'),
+('Volvo'),
+('DeWalt'),
+('Hitachi'),
+('Black+Decker'),
+('Sany'),
+('Cinhell')
+GO
+
+INSERT INTO dbo.TipoDocumentos(strDescripcion,strCreadoPor, FechaCreado)
+VALUES ('TI', 'dalvarezv', '2021-05-20 12:15:40'),
+              ('CC', 'JSCasu', '2021-05-20 12:30:40'),
+              ('CE', 'dalvarezv' , '2021-05-20 12:45:40'),
+              ('NIT', 'JSCasu', '2021-05-20 12:50:40')
+GO
+
+INSERT INTO dbo.TipoTelefonos( strDescripcion)
+VALUES 
+('Fijo'),
+('Celular'),
+('Satelital')
+GO
+
+
+INSERT INTO Equipos(strIdEquipo,strDescripcion,intIdTipoEquipo,fltVrUnit,fltVrPrestamo,intImpuesto,intCantExistencia,intIdMarca,Activo,strCaracteristicas,strCreadoPor,FechaCreado)
+VALUES ('1', 'Martillo Electrico', 1,50000, 10000,10,15,9,1, 'Martillo especializado en construcción de largas horas', 'JSCasu', '2021-07-13 03:07:50' ), 
+              ('2', 'Martillo Manual', 2, 30000, 5000, 10, 20,7,1, 'Martillo solamente para uso hogareño',  'dalvarezv', '2021-07-12 02:15:10'),
+              ('3','Retroexcabadora', 1, 210000000, 1000000, 50, 5, 4, 1, 'Retroexcavadora para trabajos pesados, buena durabilidad y eficacia', 'JsCasu', '2021-03-5 01:01:50'),
+             ('4', 'Retroexcabadora', 1, 350000000, 2000000, 60, 10, 1, 1,'Retroexcavadora para todo tipo de trabajos', 'dalvarezv','2021-03-5 01:15:50'),                  ('3001', 'Taladro', 1, 600000, 15000, 10, 30,5,1, 'Taladro para todo tipo de uso, pero, especializado en trabajo pesado', 'JSCasu', '2021-01-20 05:15:10' ),
+             ('5', 'Taladro Manual', 1, 80000, 5000, 5, 10,7,1, 'Taladro solo para uso hogareño', 'dalvarezv', '2021-05-20 12:15:40' )
+GO
+
+INSERT INTO dbo.Empleados(strNroDocumento, intIdTipoDocumento, strNombres, strApellidos, strTelefono, strDireccion,intIdCiudad, strUsuario, strContraseña, Activo, strCreadoPor, FechaCreado)
+VALUES ('1005860607', '4', 'Sebastian', 'Castillo', '310576695', 'calle 50A#57-66', 1, 'JSCasu', '123456', 1, 'dalvarezv', '2021-06-29 06:50:10'),
+              ('1005857499', '4', 'Juan', 'Rodriguez', '3175584229', 'calle20B#57-34', 1, 'jJU', '2578', 1, 'JSCasu', '2021-07-13 06:50:10'), 
+              ('1003856492', '4', 'Martin', 'Carreño', '3104484278', 'cra 15b#12-14', 1, 'Carre12', 'holitatodos', 1, 'JSCasu', '2021-07-13 06:50:10')
+GO
+
+
+
+Insert into Clientes(intIdTipoDocumento,strNroDocumento,strCorreo,strCreadoPor,TipoCliente)
+Values
+(2,'1234567890','correo1@gmail.com','dalvarezv',GETDATE(),'N'),
+(2,'1234567891','correo2@gmail.com','dalvarezv',GETDATE(),'N'),
+(2,'1234567892','correo3@gmail.com','dalvarezv',GETDATE(),'N'),
+(2,'1234567893','correo4@gmail.com','dalvarezv',GETDATE(),'J'),
+(2,'1234567894','correo5@gmail.com','dalvarezv',GETDATE(),'J'),
+(2,'1234567895','correo6@gmail.com','dalvarezv',GETDATE(),'J')
+GO
+INSERT INTO Natural(strNroDocumento,strNombres, Apellidos)
+VALUES
+('1234567890','Diego Fernando','Alvarez Varela'),
+('1234567891','Omaira Jiseth','Torres Gonzalez'),
+('1234567892','Valentina','Torres Gonzalez')
+GO
+INSERT INTO .Juridico (strNroDocumento,strRazonSocial,strContacto,strCargo)
+VALUES
+('1234567893','Algamar S.A.','Manuel Torres','Director TI'),
+('1234567894','Demetalicos','Andres Gonzalez','Jardinero'),
+('1234567895','La Finca','Yeison Estrada','Veterinario')
+GO
+
+
+INSERT INTO dbo.TelefonosClientes(strNroTelefonico, strNroDocumento, intIdTipoTelefono)
+VALUES ('3721314', '1234567890', 1),('3721315', '1234567890', 2),('00870776999999', '1234567890', 3),
+('3146677','1234567891',1),
+('3137766','1234567892',1),
+('3107962812','1234567893',2),
+('00870776999888','1234567894',3),
+('3046289809','1234567895',2)
+GO
+INSERT INTO Direcciones(strNroDocumento,strDireccion,intIdCiudad)
+VALUES
+('1234567890','Carrera 3 # 18-45',1),('1234567890','Carrera 7 # 84- 72',2),('1234567890','Calle 4 No. 5 – 10',1),
+('1234567891','Calle 24 N° 5-60',1),('1234567894','Calle 26 N° 10-69',1),
+('1234567892','Calle 48b sur No. 21-13',1),('1234567894','Calle 70b sur No. 15-60',1),
+('1234567893','Avenida Cra. 60 No. 57-60',1),('1234567894','Avenida Cra. 70 No. 60-75',1),
+('1234567894','Calle 10 No. 5-22',1),('1234567894','Calle 70 No. 25-45',1),
+('1234567895','Carrera 20 No. 37-54',1)
+
+go
+
