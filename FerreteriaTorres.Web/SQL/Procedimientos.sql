@@ -325,17 +325,22 @@ as
 	--EXEC BuscarDetalleAlquiler 20
 	end
 go
-CREATE procedure BuscarAlquiler
+create procedure BuscarAlquiler
 @intIdAlquiler int
 as
+
 	Begin
-select intIdAlquiler,Convert (varchar(10), Fecha, 103) As Fecha,a.strNroDocumento,n.Apellidos,n.strNombres,j.strRazonSocial,strDireccion,a.strCreadoPor,c.TipoCliente from alquiler a
+select a.intIdAlquiler,a.Fecha,a.strNroDocumento,n.Apellidos,n.strNombres,j.strRazonSocial,
+strDireccion,a.strCreadoPor,c.TipoCliente,
+a.fltVrBruto,a.fltVrDescuento,a.fltVrIva,a.fltVrNeto
+from alquiler a
 INNER JOIN Clientes c on a.strNroDocumento = c.strNroDocumento
+INNER JOIN AlquilerDetalle ad on a.intIdAlquiler = ad.intIdAlquiler
 LEFT JOIN Natural n on c.strNroDocumento = n.strNroDocumento
 left join Juridico j on c.strNroDocumento = j.strNroDocumento
-where intIdAlquiler = @intIdAlquiler
+where a.intIdAlquiler = @intIdAlquiler
 EXEC BuscarDetalleAlquiler @intIdAlquiler
---EXEC BuscarAlquiler 20
+--EXEC BuscarAlquiler 1;
 end
 
 GO

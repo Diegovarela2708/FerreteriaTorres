@@ -68,11 +68,15 @@ namespace FerreteriaTorres.Web
                     return;
                 }
                 this.txtIdAlquiler.Text = ObjclsA.intIdAlquiler.ToString();
-                this.txtFecha.Text = ObjclsA.Fecha.ToShortDateString();
+                this.txtFecha.Text = ObjclsA.Fecha.ToString("dd-MM-yyyy HH:mm");
                 this.txtNroDocumento.Text = ObjclsA.strNroDocumento.ToString();
                 this.txtDireccion.Text = ObjclsA.strDireccion.ToString();
                 this.txtCreadoPor.Text = ObjclsA.strCreadoPor;
                 this.txtNombre.Text = ObjclsA.strNombreCliente;
+                this.lblfltTotalBruto.Text = string.Format("{0:C2}", ObjclsA.fltVrBruto);
+                this.lblfltTotaDescuento.Text = string.Format("{0:C2}", ObjclsA.fltVrDescuento);
+                this.lblfltTotalIva.Text = string.Format("{0:C2}", ObjclsA.fltVrIva);
+                this.lblfltTotalNeto.Text = string.Format("{0:C2}", ObjclsA.fltVrNeto);
                 ObjclsA = null;
             }
             catch (Exception ex)

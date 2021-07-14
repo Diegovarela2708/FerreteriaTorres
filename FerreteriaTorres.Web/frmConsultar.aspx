@@ -21,8 +21,6 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Encabezado" runat="server">
-</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
     <table align="center" cellpadding="3" cellspacing="3" class="auto-style1">
         <tr>
@@ -110,13 +108,41 @@
                         <HeaderStyle HorizontalAlign="Right" />
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="FechaEntrega" DataFormatString="{0:yyyy-mm-d}" HeaderText="Fecha Entrega" />
-                        <asp:BoundField DataField="FechaDevolucion" DataFormatString="{0:yyyy-mm-d HH:MM}" HeaderText="Fecha Devolucion" />
+                        <asp:BoundField DataField="FechaEntrega" DataFormatString="{0:yyyy-mm-d}" HeaderText="F. Entrega" />
+                        <asp:BoundField DataField="FechaDevolucion" DataFormatString="{0:yyyy-mm-d HH:MM}" HeaderText="F. Devolucion" />
                     </Columns>
                     <RowStyle ForeColor="Red" HorizontalAlign="Center" />
                 </asp:GridView>
             </td>
         </tr>
+        <tr>
+                <td class="auto-style8">
+                                <h2 class="auto-style6"><strong>Totales:&nbsp; </strong></h2>
+                </td>
+            </tr>
+        <tr>
+                <td class="auto-style6">
+                                <asp:Label ID="Label1" runat="server" Text="Total Bruto:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblfltTotalBruto" runat="server" Text=""></asp:Label></td>
+            </tr>
+        <tr>
+                <td class="auto-style6">
+                                <asp:Label ID="Label2" runat="server" Text="Total Iva:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblfltTotalIva" runat="server" Text=""></asp:Label></td>
+            </tr>
+        <tr>
+                <td class="auto-style6">
+                                <asp:Label ID="Label3" runat="server" Text="Total Descuentos:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblfltTotaDescuento" runat="server" Text=""></asp:Label></td>
+            </tr>
+        <tr>
+                <td class="auto-style6">
+                                <asp:Label ID="Label4" runat="server" Text="Total Neto:">            </asp:Label>
+                                <asp:Label ID="lblfltTotalNeto" runat="server" Text=""></asp:Label></td>
+            </tr>
         <tr>
             <td>&nbsp;</td>
         </tr>

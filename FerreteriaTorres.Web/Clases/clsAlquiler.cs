@@ -180,7 +180,11 @@ namespace FerreteriaTorres.Web.Clases
                 strNroDocumento = dr["strNroDocumento"].ToString();
                 strDireccion = dr["strDireccion"].ToString();
                 strCreadoPor = dr["strCreadoPor"].ToString();
-                
+                fltVrBruto = Convert.ToSingle(dr["fltVrBruto"]);
+                fltVrDescuento = Convert.ToSingle(dr["fltVrDescuento"]);
+                fltVrIva = Convert.ToSingle(dr["fltVrIva"]);
+                fltVrNeto = Convert.ToSingle(dr["fltVrNeto"]);
+
                 Mydt.Clear();
                 //Llenar el grid y darle formato
                 Mydt = Myds.Tables[1];
