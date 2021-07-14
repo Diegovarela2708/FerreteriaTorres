@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <td style="width: 15%">
-                        <asp:Timer ID="Timer1" runat="server" Interval="5500" OnTick="Timer1_Tick">
+                        <asp:Timer ID="Timer1" runat="server" Interval="1500" OnTick="Timer1_Tick">
                         </asp:Timer>
                     </td>
                     <td colspan="2" style="width: 15%">

@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btnIngresar" CssClass="btn btn-primary btn-dark"  runat="server" Text="Iniciar Sesión" BackColor="Red" BorderColor="Red" Font-Bold="True" ForeColor="Black" OnClick="btnIngresar_Click" Width="30%" style="height: 27px" />
+                        <asp:Button ID="btnIngresar" CssClass="btn btn-primary btn-dark"  runat="server" Text="Iniciar Sesión" BackColor="Red" BorderColor="Red" Font-Bold="True" ForeColor="Black" OnClick="btnIngresar_Click" Width="30%" Height="34px" />
                     </td>
                 </tr>
             </table>

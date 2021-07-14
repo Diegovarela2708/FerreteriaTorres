@@ -100,7 +100,6 @@
     <Content Include="frmAlquiler.aspx" />
     <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Imagenes\black-and-white-cogs-gears-industrial-wallpaper-preview.jpg" />
     <Content Include="Imagenes\Buscar.png" />
     <Content Include="Imagenes\Delete26.png" />
     <Content Include="Imagenes\imagen11.jpg" />

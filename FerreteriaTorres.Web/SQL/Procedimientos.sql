@@ -206,14 +206,14 @@ AS
 AS
  BEGIN
  select a.intIdAlquiler as ID, CONVERT(varchar,a.Fecha,20) as Fecha,a.strNroDocumento AS "N° Documento",a.strDireccion AS "Direccion",
- a.strCreadoPor as "Creado Por",COUNT(ad.intIdAlquiler) as "Cantidad Articulos"
+ a.strCreadoPor as "Creado Por",COUNT(ad.intIdAlquiler) as "Cantidad Articulos", a.fltVrNeto as "Total Neto"
  from Alquiler a
  INNER JOIN AlquilerDetalle ad ON a.intIdAlquiler = ad.intIdAlquiler
  WHERE a.strNroDocumento = @strNroDocumento
  Group by a.intIdAlquiler, a.Fecha,a.strNroDocumento,a.strDireccion,
- a.strCreadoPor
+ a.strCreadoPor,a.fltVrNeto
  --EXEC ComboDirecciones @strNroDocumento;
- -- EXEC ConsultaHistoriaPorCliente '1119217542';
+ -- EXEC ConsultaHistoriaPorCliente '1234567890';
  END
 
  go

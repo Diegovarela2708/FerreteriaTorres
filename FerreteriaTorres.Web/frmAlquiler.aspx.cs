@@ -98,7 +98,7 @@ namespace FerreteriaTorres.Web
             this.txtNroDocumento.Enabled = true;
             this.ddlDirecciones.Enabled = true;
             //Detalle
-            txtIdEquipo.Enabled = false;
+            txtIdEquipo.Enabled = true;
             txtCantidadAlquilada.Enabled = true;
             txtPorcentajeDescuento.Enabled = true;
             txtFechaEntrega.Enabled = true;
@@ -510,6 +510,7 @@ namespace FerreteriaTorres.Web
 
                 case "opccancelar":
                     LimpiarGrid();
+                    Habilitar();
                     break;
             }
         }
