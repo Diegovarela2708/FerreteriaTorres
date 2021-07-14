@@ -511,6 +511,7 @@ namespace FerreteriaTorres.Web
                 case "opccancelar":
                     LimpiarGrid();
                     Habilitar();
+                    ActualizarTotales();
                     break;
             }
         }

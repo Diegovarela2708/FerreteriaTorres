@@ -1204,11 +1204,12 @@ GO
 
 
 INSERT INTO Equipos(strIdEquipo,strDescripcion,intIdTipoEquipo,fltVrUnit,fltVrPrestamo,intImpuesto,intCantExistencia,intIdMarca,Activo,strCaracteristicas,strCreadoPor,FechaCreado)
-VALUES ('1', 'Martillo Electrico', 1,50000, 10000,10,15,9,1, 'Martillo especializado en construcción de largas horas', 'JSCasu', '2021-07-13 03:07:50' ), 
-('2', 'Martillo Manual', 2, 30000, 5000, 10, 20,7,1, 'Martillo solamente para uso hogareño',  'dalvarezv', '2021-07-12 02:15:10'),
-('3','Retroexcabadora', 1, 210000000, 1000000, 50, 5, 4, 1, 'Retroexcavadora para trabajos pesados, buena durabilidad y eficacia', 'JsCasu', '2021-03-5 01:01:50'),
-('4', 'Retroexcabadora', 1, 350000000, 2000000, 60, 10, 1, 1,'Retroexcavadora para todo tipo de trabajos', 'dalvarezv','2021-03-5 01:15:50'),                  ('3001', 'Taladro', 1, 600000, 15000, 10, 30,5,1, 'Taladro para todo tipo de uso, pero, especializado en trabajo pesado', 'JSCasu', '2021-01-20 05:15:10' ),
-('5', 'Taladro Manual', 1, 80000, 5000, 5, 10,7,1, 'Taladro solo para uso hogareño', 'dalvarezv', '2021-05-20 12:15:40' )
+VALUES ('1', 'Martillo Electrico', 1,50000, 10000,10,8,9,1, 'Martillo especializado en construcción de largas horas', 'JSCasu', '2021-07-13 03:07:50' ), 
+('2', 'Martillo Manual', 2, 30000, 5000, 10, 10,7,1, 'Martillo solamente para uso hogareño',  'dalvarezv', '2021-07-12 02:15:10'),
+('3','Retroexcabadora', 1, 210000000, 400000, 50, 5, 4, 1, 'Retroexcavadora para trabajos pesados, buena durabilidad y eficacia', 'JsCasu', '2021-03-5 01:01:50'),
+('4', 'Retroexcabadora', 1, 350000000, 300000, 60, 5, 1, 1,'Retroexcavadora para todo tipo de trabajos', 'dalvarezv','2021-03-5 01:15:50'),
+('5', 'Taladro', 1, 600000, 15000, 10, 8,5,1, 'Taladro para todo tipo de uso, pero, especializado en trabajo pesado', 'JSCasu', '2021-01-20 05:15:10' ),
+('6', 'Taladro Manual', 1, 80000, 5000, 5, 8,7,1, 'Taladro solo para uso hogareño', 'dalvarezv', '2021-05-20 12:15:40' )
 GO
 
 INSERT INTO dbo.Empleados(strNroDocumento, intIdTipoDocumento, strNombres, strApellidos, strTelefono, strDireccion,intIdCiudad, strUsuario, strContraseña, Activo, strCreadoPor, FechaCreado)
